@@ -1,0 +1,143 @@
+doctype html
+html.no-js(lang='')
+  include jade/includes/head
+  body
+    //if lt IE 10
+      p.browserupgrade
+         You are using an
+        strong outdated
+          browser. Please
+        a(href='http://browsehappy.com/') upgrade your browser
+          to improve your experience.
+    #main-page.container-fluid
+      include jade/includes/nav
+
+      #content.container-fluid
+        .row
+          .col-md-6.col-md-offset-0
+            .col-md-12.col-md-offset-0
+              .panel.panel-primary
+                .panel-heading
+                  h3.panel-title Projekty
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+              .panel.panel-primary
+                .panel-heading
+                  h3.panel-title Panel title
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+          .col-md-6.col-md-offset-0
+            .col-md-12.col-md-offset-0
+              .panel.panel-primary
+                .panel-heading
+                  h3.panel-title Panel title
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+              .panel.panel-primary
+                .panel-heading
+                  h3.panel-title Ostatnie zmiany
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+                .panel-body Panel content
+
+        .col-md-4.col-md-offset-2
+          .list-group
+            a.list-group-item.active(href='#')
+               Cras justo odio
+
+            a.list-group-item(href='#') Dapibus ac facilisis in
+
+            a.list-group-item(href='#') Morbi leo risus
+
+            a.list-group-item(href='#') Porta ac consectetur ac
+
+            a.list-group-item(href='#') Vestibulum at eros
+
+        .col-md-4.col-md-offset-0
+          .list-group
+            a.list-group-item.active(href='#')
+               Cras justo odio
+
+            a.list-group-item(href='#') Dapibus ac facilisis in
+
+            a.list-group-item(href='#') Morbi leo risus
+
+            a.list-group-item(href='#') Porta ac consectetur ac
+
+        .row.marketing
+          .col-lg-6
+            h4 HTML5 Boilerplate
+
+            p
+               HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+
+            h4 Sass
+
+            p
+               Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
+
+            h4 Bootstrap
+
+            h4 Modernizr
+
+            p
+               Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
+
+      .footer
+        p
+    // Google Analytics: change UA-XXXXX-X to be your site's ID.
+    script.
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    // build:js scripts/vendor.js
+    // bower:js
+    script(src='/bower_components/jquery/dist/jquery.js')
+    // endbower
+    // endbuild
+    // build:js scripts/plugins.js
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js')
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js')
+    // endbuild
+    // build:js scripts/main.js
+    script(src='scripts/main.js')
+    // endbuild
