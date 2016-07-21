@@ -1,60 +1,45 @@
 nav.navbar.navbar-default.navbar-fixed-top.navbar-custom.affix-top
-    .container-fluid
-        // Brand and toggle get grouped for better mobile display
-        .navbar-header
-            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
-                span.sr-only Toggle navigation
+  .container-fluid
+    // Brand and toggle get grouped for better mobile display
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+          span.sr-only Toggle navigation
+          span.icon-bar
+      a#logo.navbar-brand(href='/')
+          img(alt='Brand', src='../images/argevide.png')
+    // Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li
+          a#a1(href='./projects', title='Projekty') Projekty
+        li
+          a(href='#') Link
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Dropdown
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href='#') Action
+            li
+              a(href='#') Another action
+            li
+              a(href='#') Something else here
+            li.divider(role='separator')
+            li
+              a(href='#') Separated link
+            li.divider(role='separator')
+            li
+              a(href='#') One more separated link
 
-                span.icon-bar
-
-            a#logo.navbar-brand(href='/')
-                img(alt='Brand', src='images/argevide.png')
-        // Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-            ul.nav.navbar-nav
-                li
-                    a#a1(href='./projects', title='Projekty') Projekty
-
-                li
-                    a(href='#') Link
-
-                li.dropdown
-                    a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-                         Dropdown
-                        span.caret
-
-                    ul.dropdown-menu
-                        li
-                            a(href='#') Action
-
-                        li
-                            a(href='#') Another action
-
-                        li
-                            a(href='#') Something else here
-
-                        li.divider(role='separator')
-
-                        li
-                            a(href='#') Separated link
-
-                        li.divider(role='separator')
-
-                        li
-                            a(href='#') One more separated link
-
-            ul.nav.navbar-nav.navbar-right
-                li.dropdown
-                    a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-                         Profil
-                        span.caret
-                    ul.dropdown-menu
-                        li
-                            a(href='#') Profil
-
-                        li.divider(role='separator')
-
-                        li
-                            a(href='#') Wyloguj
+      ul.nav.navbar-nav.navbar-right
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Profil
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href='#') Profil
+            li.divider(role='separator')
+            li
+              a(href='#') Wyloguj
         // /.navbar-collapse
     // /.container-fluid
