@@ -4,22 +4,22 @@ circle {
   stroke-width: 32;
 }
 
-svg {
-  background-color: #313547;
-  border-radius: 50%;
-  height: 60px;
-  transform: rotate( -90deg );
-  width: 60px;
-}
-
-.pie {
-  width: 60px;
-  height: 60px;
-  display: inline-block;
-  margin-right: 10px;
-  margin-top: 10px;
-  transform: rotate(-90deg );
-}
+//svg {
+//  background-color: #313547;
+//  border-radius: 50%;
+//  height: 60px;
+//  transform: rotate( -90deg );
+//  width: 60px;
+//}
+//
+//.pie {
+//  width: 60px;
+//  height: 60px;
+//  display: inline-block;
+//  margin-right: 10px;
+//  margin-top: 10px;
+//  transform: rotate(-90deg );
+//}
 
 @keyframes fillup {
   to {

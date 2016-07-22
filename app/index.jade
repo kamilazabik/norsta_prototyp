@@ -11,6 +11,7 @@ html.no-js(lang='')
           to improve your experience.
     #main-page.container-fluid
       include jade/includes/nav
+      include jade/includes/sidebar
       #content.container-fluid
         .row
           .col-md-6.col-md-offset-0
@@ -139,5 +140,6 @@ html.no-js(lang='')
     // endbuild
     // build:js scripts/main.js
     script(src='scripts/main.js')
+    script(src='scripts/sidebar.js')
     //script(src='scripts/pie.js')
     // endbuild

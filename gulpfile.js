@@ -4,6 +4,7 @@ const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync');
 const del = require('del');
 const wiredep = require('wiredep').stream;
+// const mainBowerFiles = require('gulp-main-bower-files');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -87,12 +88,44 @@ gulp.task('images', function() {
       .pipe(gulp.dest('dist/images'));
 });
 
+
 gulp.task('fonts', function()  {
   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
       .concat('app/fonts/**/*'))
+      // .pipe($.flatten())
       .pipe(gulp.dest('.tmp/fonts'))
       .pipe(gulp.dest('dist/fonts'));
 });
+
+
+// gulp.task('fonts', function()  {
+//   return gulp.src((require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}'))
+//     .pipe($.flatten())
+//     .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/'))));
+// });
+
+// gulp.task('fonts', function () {
+//    return gulp.src((require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}'))
+//     .concat('app/fonts/**/*'))
+//     .pipe($.flatten())
+//     // .pipe(gulp.dest('.tmp/fonts'))
+//     // .pipe(gulp.dest('dist/fonts'));
+//     .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/')));
+// });
+//
+// gulp.task('fonts-serve', function () {
+//   return gulp.src((require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}'))
+//     // .concat('bower_components/bootstrap/fonts/*')
+//     .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
+//     .pipe($.flatten())
+//     .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/fonts/'))));
+// });
+
+
+
+
+
+
 
 gulp.task('extras', function() {
   return gulp.src([

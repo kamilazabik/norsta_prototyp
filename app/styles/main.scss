@@ -1,4 +1,5 @@
-$icon-font-path: '../bootstrap/fonts/';
+$icon-font-path: '../fonts/';
+//@icon-font-path: "../bower_components/asset/bootstrap/fonts/";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
@@ -127,6 +128,23 @@ h3 {
     line-height: 1.4;
   }
 
+  svg {
+    background-color: #313547;
+    border-radius: 50%;
+    height: 60px;
+    transform: rotate( -90deg );
+    width: 60px;
+  }
+
+  .pie {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    transform: rotate(-90deg );
+  }
+
 }
 
 
@@ -149,6 +167,22 @@ h3 {
     line-height: 2.4;
   }
 
+  svg {
+    background-color: #313547;
+    border-radius: 50%;
+    height: 40px;
+    transform: rotate( -90deg );
+    width: 40px;
+  }
+
+  .pie {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    transform: rotate(-90deg );
+  }
 }
 
 .box-header .box-icon {
@@ -200,3 +234,24 @@ h3 {
   }
 }
 
+.btn-group {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.btn.btn-primary.btn-sm {
+  margin-bottom: 7px;
+  width: 10rem;
+}
+
+.btn.btn-assessment.btn-sm {
+  margin-bottom: 7px;
+  width: 10rem;
+  background-color: #dff0d8;
+  border-color: #d3e4cc;
+}
+
+.right-panels {
+  background-color: #ffffff;
+  border-left: 1px solid #e5e5e5;
+}
