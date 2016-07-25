@@ -10,107 +10,78 @@ html.no-js(lang='')
         a(href='http://browsehappy.com/') upgrade your browser
           to improve your experience.
     #main-page.container-fluid
-      include jade/includes/nav
-      include jade/includes/sidebar
-      #content.container-fluid
-        .row
-          .col-md-6.col-md-offset-0
-            .col-md-12.col-md-offset-0
-              .panel.panel-primary
-                .panel-heading
-                  h3.panel-title Projekty
+      #wrapper
+        include jade/includes/nav
+        include jade/includes/sidebar
+        #page-content-wrapper
+          #content.container-fluid
+            a#menu-toggle.btn.btn-default(href='#menu-toggle') Toggle Menu
+            .row
+              .col-md-6.col-md-offset-0
+                .col-md-12.col-md-offset-0
+                  .panel.panel-primary
+                    .panel-heading
+                      h3.panel-title Projekty
+                    .panel-body Panel content
+                    .panel-body Panel content
+                    .panel-body Panel content
+                    .panel-body Panel content
+                  .panel.panel-primary
+                    .panel-heading
+                      h3.panel-title Panel title
+                    .panel-body Panel content
+                    .panel-body Panel content
+                    .panel-body Panel content
+                    .panel-body Panel content
+                    .panel-body Panel content
+              .col-md-6.col-md-offset-0
+                .col-md-12.col-md-offset-0
+                  .panel.panel-primary
+                    .panel-heading
+                      h3.panel-title Panel title
+                    .panel-body Panel content
+                    .panel-body Panel content
+                    .panel-body Panel content
+                  .panel.panel-primary
+                    .panel-heading
+                      h3.panel-title Ostatnie zmiany
+                    .panel-body Panel content
+                    .panel-body Panel content
+                    .panel-body Panel content
+                    .panel-body Panel content
 
-                .panel-body Panel content
+            .col-md-4.col-md-offset-2
+              .list-group
+                a.list-group-item.active(href='#')
+                   Cras justo odio
+                a.list-group-item(href='#') Dapibus ac facilisis in
+                a.list-group-item(href='#') Morbi leo risus
+                a.list-group-item(href='#') Porta ac consectetur ac
+                a.list-group-item(href='#') Vestibulum at eros
 
-                .panel-body Panel content
+            .col-md-4.col-md-offset-0
+              .list-group
+                a.list-group-item.active(href='#')
+                   Cras justo odio
+                a.list-group-item(href='#') Dapibus ac facilisis in
+                a.list-group-item(href='#') Morbi leo risus
+                a.list-group-item(href='#') Porta ac consectetur ac
 
-                .panel-body Panel content
+            .row.marketing
+              .col-lg-6
+                h4 HTML5 Boilerplate
+                p
+                   HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+                h4 Sass
+                p
+                   Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
+                h4 Bootstrap
+                h4 Modernizr
+                p
+                   Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
 
-                .panel-body Panel content
-
-              .panel.panel-primary
-                .panel-heading
-                  h3.panel-title Panel title
-
-                .panel-body Panel content
-
-                .panel-body Panel content
-
-                .panel-body Panel content
-
-                .panel-body Panel content
-
-                .panel-body Panel content
-
-          .col-md-6.col-md-offset-0
-            .col-md-12.col-md-offset-0
-              .panel.panel-primary
-                .panel-heading
-                  h3.panel-title Panel title
-
-                .panel-body Panel content
-
-                .panel-body Panel content
-
-                .panel-body Panel content
-
-              .panel.panel-primary
-                .panel-heading
-                  h3.panel-title Ostatnie zmiany
-
-                .panel-body Panel content
-
-                .panel-body Panel content
-
-                .panel-body Panel content
-
-                .panel-body Panel content
-
-        .col-md-4.col-md-offset-2
-          .list-group
-            a.list-group-item.active(href='#')
-               Cras justo odio
-
-            a.list-group-item(href='#') Dapibus ac facilisis in
-
-            a.list-group-item(href='#') Morbi leo risus
-
-            a.list-group-item(href='#') Porta ac consectetur ac
-
-            a.list-group-item(href='#') Vestibulum at eros
-
-        .col-md-4.col-md-offset-0
-          .list-group
-            a.list-group-item.active(href='#')
-               Cras justo odio
-
-            a.list-group-item(href='#') Dapibus ac facilisis in
-
-            a.list-group-item(href='#') Morbi leo risus
-
-            a.list-group-item(href='#') Porta ac consectetur ac
-
-        .row.marketing
-          .col-lg-6
-            h4 HTML5 Boilerplate
-
-            p
-               HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-
-            h4 Sass
-
-            p
-               Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
-
-            h4 Bootstrap
-
-            h4 Modernizr
-
-            p
-               Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
-
-      .footer
-        p
+          .footer
+          p
     // Google Analytics: change UA-XXXXX-X to be your site's ID.
     script.
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
