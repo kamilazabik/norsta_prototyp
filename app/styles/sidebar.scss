@@ -9,6 +9,7 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   overflow: hidden;
+  //background-color: #fcfcfc;
 }
 
 #wrapper.toggled {
@@ -30,6 +31,7 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   border-right: 1px solid #e7e7e7;
+  background-color: #fff;
 }
 #wrapper.toggled #sidebar-wrapper {
   width: 250px;
@@ -40,9 +42,11 @@
   //padding: 15px;
   width: 100%;
   overflow-x: hidden;
+
 }
 .xyz{
   min-width: 360px;
+
 }
 #wrapper.toggled #page-content-wrapper {
   position: relative;
@@ -78,6 +82,7 @@
   text-decoration: none;
   color: #000;
   background: rgba(255,255,255,0.2);
+  //background: rgba(255,255,255,1);
   border-left: #337ab7 2px solid;
 }
 
@@ -109,7 +114,7 @@
     padding-left: 250px;
   }
   .fixed-brand{
-    width: 250px;
+    width: 100px;
   }
   #wrapper.toggled {
     padding-left: 0;

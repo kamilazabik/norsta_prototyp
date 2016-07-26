@@ -3,4 +3,7 @@ dist
 .tmp
 .sass-cache
 .DS_Store
-app/bower_components
+bower_components
+test/bower_components
+
+

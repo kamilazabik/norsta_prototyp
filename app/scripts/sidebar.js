@@ -1,11 +1,11 @@
 $(document).ready(function(){
-$("#menu-toggle").click(function(e) {
+$('#menu-toggle').click(function(e) {
   e.preventDefault();
-  $("#wrapper").toggleClass("toggled");
+  $('#wrapper').toggleClass('toggled');
 });
-$("#menu-toggle-2").click(function(e) {
+$('#menu-toggle-2').click(function(e) {
   e.preventDefault();
-  $("#wrapper").toggleClass("toggled-2");
+  $('#wrapper').toggleClass('toggled-2');
   $('#menu ul').hide();
 });
 

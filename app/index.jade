@@ -10,12 +10,11 @@ html.no-js(lang='')
         a(href='http://browsehappy.com/') upgrade your browser
           to improve your experience.
     #main-page.container-fluid
+      include jade/includes/nav-top
       #wrapper
-        include jade/includes/nav
         include jade/includes/sidebar
         #page-content-wrapper
-          #content.container-fluid
-            a#menu-toggle.btn.btn-default(href='#menu-toggle') Toggle Menu
+          #content.container-fluid.xyz
             .row
               .col-md-6.col-md-offset-0
                 .col-md-12.col-md-offset-0
