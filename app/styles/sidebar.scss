@@ -2,6 +2,11 @@
 //http://stackoverflow.com/questions/19733447/bootstrap-navbar-with-left-center-and-right-aligned-items
 
 
+.navbar-default {
+  border: 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+
 #wrapper {
   padding-left: 0;
   -webkit-transition: all 0.5s ease;
@@ -9,6 +14,8 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
   //background-color: #fcfcfc;
 }
 
@@ -24,7 +31,8 @@
   width: 0;
   height: 100%;
   margin-left: -250px;
-  overflow-y: auto;
+  //overflow-y: auto;
+  overflow: hidden;
   //background: #e9e9e9;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -42,10 +50,12 @@
   //padding: 15px;
   width: 100%;
   overflow-x: hidden;
+  height: 100%;
 
 }
 .xyz{
   min-width: 360px;
+  width: 100%;
 
 }
 #wrapper.toggled #page-content-wrapper {
@@ -110,6 +120,9 @@
 }
 
 @media(min-width:768px) {
+  .navbar {
+    border-radius: 0;
+  }
   #wrapper {
     padding-left: 250px;
   }

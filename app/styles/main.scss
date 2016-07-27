@@ -6,6 +6,15 @@ $icon-font-path: '../fonts/';
 @import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
 
+$pie-size-big: 60px;
+$pie-size-md: 40px;
+$pie-size-sx: 30px;
+
+
+body, html, .container-fluid {
+  height: 100%;
+}
+
 #main-page {
   padding: 0;
 }
@@ -67,14 +76,6 @@ h3 {
 }
 
 /* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
 
 /* Supporting marketing content */
 .marketing {
@@ -102,11 +103,6 @@ h3 {
   .header {
     margin-bottom: 30px;
   }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
 }
 
 
@@ -132,18 +128,30 @@ h3 {
   svg {
     background-color: #313547;
     border-radius: 50%;
-    height: 60px;
+    height: $pie-size-big;
     transform: rotate( -90deg );
-    width: 60px;
+    width: $pie-size-big;
   }
 
   .pie {
-    width: 60px;
-    height: 60px;
+    width: $pie-size-big;
+    height: $pie-size-big;
     display: inline-block;
     margin-right: 10px;
     margin-top: 10px;
     transform: rotate(-90deg );
+  }
+
+  .btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #fff;
+  }
+
+  .btn-default:hover {
+    color: #333;
+    background-color: #d4d4d4;
+    border-color: #8c8c8c;
   }
 
 }
@@ -171,20 +179,63 @@ h3 {
   svg {
     background-color: #313547;
     border-radius: 50%;
-    height: 40px;
+    height: $pie-size-md;
     transform: rotate( -90deg );
-    width: 40px;
+    width: $pie-size-md;
   }
 
   .pie {
-    width: 40px;
-    height: 40px;
+    width: $pie-size-md;
+    height: $pie-size-md;
     display: inline-block;
     margin-right: 10px;
     margin-top: 10px;
     transform: rotate(-90deg );
   }
 }
+
+.box-under-header-sx {
+  background: #fff;
+  color: black;
+  //font-size: 10px;
+  overflow: hidden;
+  //-webkit-border-radius: 2px 2px 0 0;
+  //-moz-border-radius: 2px 2px 0 0;
+  //border-radius: 2px 2px 0 0;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  //border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  height: 5rem;
+
+  h5 {
+    font-weight: 400;
+    line-height: 2.2;
+  }
+
+  h6 {
+    font-weight: 400;
+    line-height: 0.8;
+  }
+
+  svg {
+    background-color: #313547;
+    border-radius: 50%;
+    height: $pie-size-sx;
+    transform: rotate( -90deg );
+    width: $pie-size-sx;
+  }
+
+  .pie {
+    width: $pie-size-sx;
+    height: $pie-size-sx;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    transform: rotate(-90deg );
+  }
+}
+
 
 .box-header .box-icon {
   background: #1e8fc6;
@@ -212,9 +263,16 @@ h3 {
   //border-left: 1px solid #e7e7e7;
 }
 
+.assessment-icon-big {
+  border: 1px solid #e7e7e7;
+  border-top: 0;
+}
+
 .assessment-icon {
   border: 1px solid #e7e7e7;
 }
+
+
 //.fa {
 //  display: inline-block;
 //  font-family: FontAwesome;
@@ -236,7 +294,7 @@ h3 {
 }
 
 .btn-group {
-  margin-left: 20px;
+  margin-left: 40%;
   margin-top: 10px;
 }
 
@@ -258,5 +316,5 @@ h3 {
 }
 
 #main-panel {
-  margin: -20px -32px 0px -30px;
+  margin: -20px -33px 0px -30px;
 }

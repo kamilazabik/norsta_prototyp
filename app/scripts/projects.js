@@ -18,7 +18,7 @@
     dropdownMenu.css({
       'display': 'block',
       'top': eOffset.top + $(e.target).outerHeight(),
-      'left': eOffset.left
+      'left': eOffset.left - $(e.target).outerWidth()
     });
   });
 
