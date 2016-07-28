@@ -14,12 +14,20 @@ $(document).ready(function(){
   $('#a2').click(function(e) {
     e.preventDefault();
     $('#panel-content').load('./jade/panel-content.html');
-    // window.history.pushState(
-    //     {page: 'projects'},
-    //     'Projekty',
-    //     '/components/projects.html'
-    // );
   });
+
+  $('#a3').click(function(e) {
+    e.preventDefault();
+    $('#content').load('./jade/projects.html');
+    $('#sidebar-wrapper').load('./jade/includes/nav-project.html');
+  });
+
+  $('.claim').click(function(e) {
+    e.preventDefault();
+    $('#content').load('./jade/panel-content.html');
+    $('#main-panel').addClass("fixed");
+  });
+
 
     $( '.panels' ).click(function() {
         // $('#list-of-claims').toggleClass('hidden show');
@@ -32,7 +40,7 @@ $(document).ready(function(){
         // }
     });
 
-  $('.panel-fixed').click(function() {
+  $('.panel-fixed, .claim').click(function() {
     $('#main-panel').addClass("fixed");
     // console.log($('.panel-fixed'));
   });
