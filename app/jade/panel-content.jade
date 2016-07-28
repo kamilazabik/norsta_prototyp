@@ -1,4 +1,4 @@
-.col-md-9.col-md-offset-0.pull-left
+.col-md-9.col-md-offset-0.pull-leftl.panel-margin
   .col-md-12.col-md-offset-0
     .row
       .col-md-1.col-md-offset-0.box-under-header.pull-left.number
@@ -88,7 +88,7 @@
           .col-md-3
             h6.text-right 2264/4000
             h6.text-right 60%
-.col-md-3.col-md-offset-0.pull-right
+.col-md-3.col-md-offset-0.pull-right.panel-margin
   #accordion.panel-group(role='tablist', aria-multiselectable='true')
     .panel.panel-default
       #headingOne.panel-heading(role='tab')
@@ -111,3 +111,43 @@
       #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
         .panel-body
           | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+
+  #bs-collapse.panel-group.wrap
+    .panel
+      .panel-heading
+        h4.panel-title
+          a(data-toggle='collapse', data-parent='', href='#one')
+            | Collapse item #1
+      #one.panel-collapse.collapse
+        .panel-body
+          | Where now are the horse and the rider? Where is the horn that was blowing? Where is the helm and the hauberk, and the bright hair flowing?
+    // end of panel
+    .panel
+      .panel-heading
+        h4.panel-title
+          a(data-toggle='collapse', data-parent='', href='#two')
+            | Collapse item #2
+      #two.panel-collapse.collapse
+        .panel-body
+          | Where is the harp on the harpstring, and the red fire glowing? Where is the spring and the harvest and the tall corn growing?
+    // end of panel
+    .panel
+      .panel-heading
+        h4.panel-title
+          a(data-toggle='collapse', data-parent='', href='#three')
+            | Collapse item #3
+      #three.panel-collapse.collapse
+        .panel-body
+          | The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning? The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning?The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning?The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning?
+    // end of panel
+    .panel
+      .panel-heading
+        h4.panel-title
+          a(data-toggle='collapse', data-parent='', href='#four')
+            | Collapse item #4
+      #four.panel-collapse.collapse.in
+        .panel-body
+          | They have passed like rain on the mountain, like a wind in the meadow; The days have gone down in the West behind the hills into shadow.
+    // end of panel
+  // end of #bs-collapse
+
