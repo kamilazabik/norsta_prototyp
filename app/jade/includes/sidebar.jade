@@ -1,8 +1,8 @@
 //ul.nav.navbar-nav
-//  li.active
-//    button#menu-toggle-2.navbar-toggle.collapse.in(data-toggle='collapse')
-//      span.glyphicon.glyphicon-forward-large(aria-hidden='true') dfsdfs
-ul#menu.sidebar-nav.nav-pills.nav-stacked
+  li.active
+    button#menu-toggle-2.navbar-toggle.collapse.in(data-toggle='collapse')
+      span.glyphicon.glyphicon-forward-large(aria-hidden='true') dfsdfs
+//ul#menu.sidebar-nav.nav-pills.nav-stacked
   li.active
     a(href='#')
       span.fa-stack.fa-lg.pull-left
@@ -51,7 +51,7 @@ ul#menu.sidebar-nav.nav-pills.nav-stacked
       | NOR-STA
     ul.nav-pills.nav-stacked(style='list-style-type:none;')
       li
-        a#a3(href='#')
+        a#nav-left-hseq(href='#')
           span.fa-stack.fa-lg.pull-left
             i.fa.fa-flag.fa-stack-1x
           | HSEQ
@@ -70,4 +70,144 @@ ul#menu.sidebar-nav.nav-pills.nav-stacked
       span.fa-stack.fa-lg.pull-left
         i.fa.fa-server.fa-stack-1x
       | Trial
+//.container
+//.panel.panel-default
+//.panel-heading Treeview List
+//div
+//  .treeview
+//  ul.treeview
+//    li
+//      a(href='#') Tree
+//      ul
+//        li
+//          a(href='#') Branch
+//        li
+//          a(href='#') Branch
+//          ul
+//            li
+//              a(href='#') Stick
+//            li
+//              a(href='#') Stick
+//            li
+//              a(href='#') Stick
+//              ul
+//                li
+//                  a(href='#') Twig
+//                li
+//                  a(href='#') Twig
+//                li
+//                  a(href='#') Twig
+//                li
+//                  a(href='#') Twig
+//                  ul
+//                    li
+//                      a(href='#') Leaf
+//                      ul
+//                        li
+//                          a(href='#') Identyfikowania aspektów środowiskowych związanych z działaniami, wyrobami i usługami
+//                    li
+//                      a(href='#') Leaf
+//                    li
+//                      a(href='#') Leaf
+//                    li
+//                      a(href='#') Leaf
+//                    li
+//                      a(href='#') Leaf
+//                    li
+//                      a(href='#') Leaf
+//                    li
+//                      a(href='#') Leaf
+//                    li
+//                      a(href='#') Leaf
+//                    li
+//                      a(href='#') Leaf
+//                li
+//                  a(href='#') Twig
+//                li
+//                  a(href='#') Twig
+//            li
+//              a(href='#') Stick
+//        li
+//          a(href='#') Branch
+//        li
+//          a(href='#') Branch
+
 // /#sidebar-wrapper
+
+.tree
+      ul
+        li
+          span
+            i.icon-folder-open
+            |  NOR-STA
+          a(href='') Goes somewhere
+          ul
+            li
+              span
+                i.glyphicon.glyphicon-minus
+                |  Child
+              ul
+                li
+                  span
+                    i.icon-leaf
+                    |  Grand Child
+                  //a(href='') Goes somewhere
+            li
+              span
+                i.icon-minus-sign
+                |  Child
+              a(href='') Goes somewhere
+              ul
+                li
+                  span
+                    i.icon-leaf
+                    |  Grand Child
+                  a(href='') Goes somewhere
+                li
+                  span
+                    i.icon-minus-sign
+                    |  Grand Child
+                  a(href='') Goes somewhere
+                  ul
+                    li
+                      span
+                        i.icon-minus-sign
+                        |  Great Grand Child
+                      a(href='') Goes somewhere
+                      ul
+                        li
+                          span
+                            i.icon-leaf
+                            |  Great great Grand Child
+                          a(href='') Goes somewhere
+                        li
+                          span
+                            i.icon-leaf
+                            |  Great great Grand Child
+                          a(href='') Goes somewhere
+                    li
+                      span
+                        i.icon-leaf
+                        |  Great Grand Child
+                      a(href='') Goes somewhere
+                    li
+                      span
+                        i.icon-leaf
+                        |  Great Grand Child
+                      a(href='') Goes somewhere
+                li
+                  span
+                    i.icon-leaf
+                    |  Grand Child
+                  a(href='') Goes somewhere
+        li
+          span
+            i.icon-folder-open
+            |  Parent2
+          a(href='') Goes somewhere
+          ul
+            li
+              span
+                i.icon-leaf
+                |  Child
+              a(href='') Goes somewhere

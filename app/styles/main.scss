@@ -481,3 +481,141 @@ h3 {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
 }
+
+
+
+div.panel:first-child {
+  margin-top:20px;
+}
+
+div.treeview {
+  min-width: 250px;
+  height: 100%;
+  overflow:auto;
+  padding: 4px;
+  margin-bottom: 20px;
+  color: #369;
+  //border: solid 1px;
+  border-radius: 4px;
+}
+div.treeview ul:first-child:before {
+  display: none;
+}
+.treeview, .treeview ul {
+  margin:0;
+  padding:0;
+  list-style:none;
+  color: #369;
+}
+.treeview ul {
+  //margin-left:1em;
+  position:relative
+}
+.treeview ul ul {
+  margin-left:.5em
+}
+.treeview ul:before {
+  content:"";
+  display:block;
+  width:0;
+  position:absolute;
+  top:0;
+  left:0;
+  //border-left:1px solid;
+
+  /* creates a more theme-ready standard for the bootstrap themes */
+  bottom:15px;
+}
+.treeview li {
+  margin:0;
+  padding:0 0.5em;
+  line-height:2em;
+  font-weight:500;
+  position:relative
+}
+.treeview ul li:before {
+  content:"";
+  display:block;
+  width:10px;
+  height:0;
+  //border-top:1px solid;
+  margin-top:-1px;
+  position:absolute;
+  top:1em;
+  left:0
+}
+.tree-indicator {
+  margin-right:5px;
+
+  cursor:pointer;
+}
+.treeview li a {
+  text-decoration: none;
+  color:inherit;
+
+  cursor:pointer;
+}
+.treeview li button, .treeview li button:active, .treeview li button:focus {
+  text-decoration: none;
+  color:inherit;
+  border:none;
+  background:transparent;
+  margin:0px 0px 0px 0px;
+  padding:0px 0px 0px 0px;
+  outline: 0;
+}
+
+
+
+
+
+.tree {
+  min-height:20px;
+  //padding:19px;
+  margin-bottom:20px;
+  //background-color:#fbfbfb;
+  //-webkit-border-radius:4px;
+  //-moz-border-radius:4px;
+  //-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  //-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  //box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05)
+}
+.tree li {
+  list-style-type:none;
+  margin:0;
+  padding:10px 5px 0 5px;
+  position:relative
+}
+.tree li::before, .tree li::after {
+  content:'';
+  left:-20px;
+  position:absolute;
+  right:auto
+}
+.tree li::before {
+  bottom:50px;
+  height:100%;
+  top:0;
+  width:1px
+}
+.tree li::after {
+  height:20px;
+  top:25px;
+  width:25px
+}
+.tree li span {
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  display:inline-block;
+  padding:3px 8px;
+  text-decoration:none
+}
+.tree li.parent_li>span {
+  cursor:pointer
+}
+.tree>ul>li::before, .tree>ul>li::after {
+  border:0
+}
+.tree li:last-child::before {
+  height:30px
+}
