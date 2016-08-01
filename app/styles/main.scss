@@ -567,8 +567,6 @@ div.treeview ul:first-child:before {
 
 
 
-
-
 .tree {
   min-height:20px;
   //padding:19px;
@@ -618,4 +616,9 @@ div.treeview ul:first-child:before {
 }
 .tree li:last-child::before {
   height:30px
+}
+
+.hidden{
+  display: none;
+
 }
