@@ -2,56 +2,57 @@ $(document).ready(function(){
 
     $('#menu-projects').click(function(e) {
         e.preventDefault();
-        $('#content').load('./jade/projects.html');
-
-        // window.history.pushState(
-        //     {page: 'projects'},
-        //     'Projekty',
-        //     '/components/projects.html'
-        // );
+      $('#content').load('./jade/main-panel.html', function(){
+        $('#content').append('<div id="panel-content" />');
+        $('#panel-content').load('./jade/main-panel-content.html', function(){
+        });
+      });
     });
-
-  // $('#nav-left-hseq').click(function(e) {
-  //   e.preventDefault();
-  //   $('#content').load('./jade/projects.html');
-  //   $('#main-panel').addClass('fixed');
-  //   // $('#sidebar-wrapper').load('./jade/includes/nav-project.html');
-  // });
 
   $('#3').click(function(e) {
     e.preventDefault();
-    // $('#content').load('./jade/main-panel.html');
-    $('#panel-content').load('./jade/panel-content.html');
+    $('#content').load('./jade/main-panel.html', function(){
+      $('#content').append('<div id="panel-content" />');
+      $('#panel-content').load('./jade/1-panel-content.html', function(){
+      });
+    });
   });
 
   $('#4').click(function(e) {
     e.preventDefault();
-    $('#panel-content').load('./jade/panel-content-1.html');
-    $('#main-panel').addClass('fixed');
-    // $('#sidebar-wrapper').load('./jade/includes/nav-project.html');
+    $('#content').load('./jade/main-panel.html', function(){
+      $('#content').append('<div id="panel-content" />');
+      $('#panel-content').load('./jade/4-panel-content.html', function(){
+      });//end second load
+    });// end first load
   });
 
 
   $('#claim-hseq').click(function(e) {
     e.preventDefault();
     $('#panel-content').load('./jade/projects.html');
-    $('#main-panel').addClass('fixed');
+
   });
 
   $('#claim-hseq-3').click(function(e) {
     e.preventDefault();
-    $('#panel-content').load('./jade/panel-content.html');
+    $('#content').load('./jade/main-panel.html', function(){
+      $('#content').append('<div id="panel-content" />');
+      $('#panel-content').load('./jade/1-panel-content.html', function(){
+      });
+    });
     $('#main-panel').addClass('fixed');
+
   });
 
   $('#claim-hseq-4').click(function(e) {
-    e.preventDefault();
-    $('#content').load('./jade/projects.html');
-    $('#main-panel').load('./jade/main-panel.html');
-    $('#panel-content').load('./jade/panel-content-1.html');
-
-  });
-
+    // e.preventDefault();
+  $('#content').load('./jade/main-panel.html', function(){
+      $('#content').append('<div id="panel-content" />');
+      $('#panel-content').load('./jade/4-panel-content.html', function(){
+    });//end second load
+  });// end first load
+});
 
   //   $( '.panels' ).click(function() {
   //       // $('#list-of-claims').toggleClass('hidden show');
@@ -64,29 +65,6 @@ $(document).ready(function(){
   //       // }
   //   });
   //
-  $('.panel-fixed, .claim').click(function() {
-    $('#main-panel').addClass('fixed');
-    // console.log($('.panel-fixed'));
-  });
-
-
-  $(function () {
-    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-    $('.tree li.parent_li > span').on('click', function (e) {
-      var children = $(this).parent('li.parent_li').find(' > ul > li');
-      if (children.is(':visible')) {
-        children.hide('fast');
-        $(this).attr('title', 'Expand this branch').find(' > i').toggleClass('glyphicon-chevron-down glyphicon-chevron-right');
-      } else {
-        children.show('fast');
-        $(this).attr('title', 'Collapse this branch').find(' > i').toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
-      }
-      e.stopPropagation();
-    });
-  });
-
-
-
 
     // $('.collapse.in').prev('.panel-heading').addClass('active');
     // $('#accordion, #bs-collapse')
