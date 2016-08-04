@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+    $('#logo').click(function(e) {
+      e.preventDefault();
+      $('#content').load('./jade/main-page.html');
+    });
+
     $('#menu-projects').click(function(e) {
         e.preventDefault();
       $('#content').load('./jade/main-panel.html', function(){
@@ -27,13 +32,6 @@ $(document).ready(function(){
     });// end first load
   });
 
-
-  $('#claim-hseq').click(function(e) {
-    e.preventDefault();
-    $('#panel-content').load('./jade/projects.html');
-
-  });
-
   $('#claim-hseq-3').click(function(e) {
     e.preventDefault();
     $('#content').load('./jade/main-panel.html', function(){
@@ -53,6 +51,16 @@ $(document).ready(function(){
     });//end second load
   });// end first load
 });
+
+  $('#btn-claim-4').click(function(e) {
+    // e.preventDefault();
+    $('#content').load('./jade/main-panel.html', function(){
+      $('#content').append('<div id="panel-content" />');
+      $('#panel-content').load('./jade/4-panel-content.html', function(){
+      });//end second load
+    });// end first load
+  });
+
 
   //   $( '.panels' ).click(function() {
   //       // $('#list-of-claims').toggleClass('hidden show');
@@ -141,23 +149,5 @@ $(document).ready(function(){
 //   })
 // });
 
-
-  // $(function () {
-  //   $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-  //   $('.tree li.parent_li > span').on('click', function (e) {
-  //     var children = $(this).parent('li.parent_li').find(' > ul > li');
-  //     if (children.hasClass("hidden")) {
-  //       children.removeClass('hidden')
-  //       children.show('fast');
-  //       $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
-  //     } else {
-  //       children.addClass('hidden');
-  //       // children.hide('fast');
-  //       $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
-  //
-  //     }
-  //     e.stopPropagation();
-  //   });
-  // });
 
 });

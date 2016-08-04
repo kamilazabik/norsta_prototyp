@@ -19,7 +19,7 @@
       .col-md-1
         .row
           .col-md-12
-            button.btn.btn-primary.btn-sm(type='button') Rozwiń
+            button.btn.btn-primary.btn-sm.custom-btn(type='button') Rozwiń
         .row
           .col-md-12
             button.btn.btn-assessment.btn-sm(type='button') Oceń
@@ -37,42 +37,6 @@
         .btn-group-vertical
           button.btn.btn-secondary(type='button') Small button
           button.btn.btn-secondary(type='button') Small button
-      .col-md-10.col-md-offset-0
-        .list-of-claims.hidden
-          .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
-            h5 2.1
-          .panel.col-md-6.box-under-header-sx.pull-left.title
-            a(href='#')
-              h5 Polityka i zasady
-          .col-md-3.box-under-header-sx.assessment-icon
-            .row
-              .col-md-3
-                .pie.pull-left 60%
-              .col-md-3
-                h6 Wynik
-                h6 Oceniono
-              .col-md-3
-                h6.text-right 2264/4000
-                h6.text-right 60%
-        .list-of-claims.hidden
-          .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
-            h5 2.1
-          .panel.col-md-6.box-under-header-sx.pull-left.title
-            a(href='#')
-              h5 Polityka
-          .col-md-3.box-under-header-sx.assessment-icon
-            .row
-              .col-md-3
-                .pie.pull-left 60%
-              .col-md-3
-                h6 Wynik
-                h6 Oceniono
-              .col-md-3
-                h6.text-right 2264/4000
-                h6.text-right 60%
-          //a(href='#') Polityka i zasady
-          //a.list-group-item(href='#') Polityka HSEQ
-          //a.list-group-item(href='#') Planowanie HSEQ
 .col-md-9.col-md-offset-0
   .col-md-12.col-md-offset-0
     .panel-fixed.row
@@ -97,6 +61,13 @@
           h4 Wdrożenie i Funkcjonowanie HSEQ
       .col-md-4.box-under-header.assessment-icon
         h4 Ocena
+      .col-md-1
+        .row
+          .col-md-12
+            button#btn-claim-4.btn.btn-primary.btn-sm.custom-btn(type='button') Rozwiń
+        .row
+          .col-md-12
+            button.btn.btn-assessment.btn-sm(type='button') Oceń
 .col-md-9.col-md-offset-0
   .col-md-12.col-md-offset-0
     .row
@@ -124,6 +95,9 @@
         h4 Przegląd Zarządzania HSEQ
       .col-md-4.box-under-header.assessment-icon
         h4 Ocena
-include includes/scripts
+//include includes/scripts
+
+script(src='scripts/main.js')
+script(src='scripts/pie.js')
 
 

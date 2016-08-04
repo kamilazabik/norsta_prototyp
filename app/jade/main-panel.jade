@@ -1,31 +1,54 @@
 #main-panel
-  .col-md-12.col-md-offset-0.left
-    .col-md-12.col-md-offset-0
-      .row
-        .col-md-8.box-header.pull-left.title-main
+  .col-md-12.col-sm-12.col-xs-12.col-md-offset-0
+    .col-md-12.col-sm-12.col-xs-12.col-md-offset-0
+      .row.fixedPos
+        .col-lg-8.col-md-6.col-sm-4.col-sx-7.box-header.pull-left.title-main
           h3 HSEQ STORA
-        .col-md-4.box-header.assessment-icon-big
-          .row
-            .col-md-3
-              .pie.pull-left 80%
-            .col-md-3
-              h4 Wynik
-              h4 Oceniono
-            .col-md-3
-              h4.text-right 2447/4000
-              h4.text-right 80%
-            .col-sm-3
-              .btn-group
-                button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Select
-                  //span(data-bind='label')
-                  span.caret
-                ul.dropdown-menu(role='menu')
-                  li
-                    a(href='#') Pozycja 1
-                  li
-                    a(href='#') Pozycja 2
-                  li
-                    a(href='#') Pozycja 3
+        .col-lg-1.col-md-1.col-sm-2.col-sx-2.box-header.assessment-icon-big.pull-left
+          .pie.pull-left 80%
+        .col-lg-1.col-md-2.col-sm-2.col-sx-1.box-header.pull-left
+          h4 Wynik
+          h4 Oceniono
+        .col-lg-1.col-md-2.col-sm-2.col-sx-1.box-header.pull-left
+          h4.text-right 2447/4000
+          h4.text-right 80%
+        .col-lg-1.col-md-1.col-sm-2.col-sx-1.box-header.pull-left
+          .btn-group
+            button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Select
+                //span(data-bind='label')
+                span.caret
+            ul.dropdown-menu(role='menu')
+              li
+                a(href='#') Pozycja 1
+              li
+                a(href='#') Pozycja 2
+              li
+                a(href='#') Pozycja 3
             //.navbar.navbar-light.bg-faded
               //  button.navbar-toggler(type="button")&attributes({'data-toggle':'collapse'})&attributes({'data-target':'#exCollapsingNavbar'})
               //  span.glyphicon.glyphicon-search
+
+          //.row
+          //  .col-md-3
+          //    .pie.pull-left 80%
+          //  .col-md-3
+          //    h4 Wynik
+          //    h4 Oceniono
+          //  .col-md-3
+          //    h4.text-right 2447/4000
+          //    h4.text-right 80%
+          //  .col-sm-3
+          //    .btn-group
+          //      button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Select
+          //        //span(data-bind='label')
+          //        span.caret
+          //      ul.dropdown-menu(role='menu')
+          //        li
+          //          a(href='#') Pozycja 1
+          //        li
+          //          a(href='#') Pozycja 2
+          //        li
+          //          a(href='#') Pozycja 3
+          //  //.navbar.navbar-light.bg-faded
+          //    //  button.navbar-toggler(type="button")&attributes({'data-toggle':'collapse'})&attributes({'data-target':'#exCollapsingNavbar'})
+          //    //  span.glyphicon.glyphicon-search

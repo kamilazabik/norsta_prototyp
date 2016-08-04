@@ -6,7 +6,7 @@ $icon-font-path: '../fonts/';
 @import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
 
-
+@import "mixins";
 
 body, html, .container-fluid {
   //height: 100%;
@@ -32,6 +32,7 @@ body, html, .container-fluid {
 #panel-content {
   height: 100%;
   background-color: #fcfcfc;
+  margin-top: 100px;
 }
 
 .footer {
