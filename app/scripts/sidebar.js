@@ -12,7 +12,8 @@ $('#menu-toggle-2').click(function(e) {
 
     $(function () {
         $('div#sidebar-wrapper li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-      // $('div#sidebar-wrapper li ul > li').hide();
+      // console.log($('div#sidebar-wrapper li ul > li'))
+
         $('div#sidebar-wrapper li.parent_li > span').on('click', function (e) {
             var children = $(this).parent('li.parent_li').find(' > ul > li');
           // console.log(children);

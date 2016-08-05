@@ -8,6 +8,10 @@ $icon-font-path: '../fonts/';
 
 @import "mixins";
 
+.cl {
+  color: #e2282b;
+}
+
 body, html, .container-fluid {
   //height: 100%;
 }
