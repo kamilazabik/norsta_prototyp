@@ -15,6 +15,7 @@ $('#menu-toggle-2').click(function(e) {
       // console.log($('div#sidebar-wrapper li ul > li'))
 
         $('div#sidebar-wrapper li.parent_li > span').on('click', function (e) {
+          console.log('4');
             var children = $(this).parent('li.parent_li').find(' > ul > li');
           // console.log(children);
             if (children.is(':visible')) {
