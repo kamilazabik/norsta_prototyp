@@ -34,3 +34,40 @@
                 .panel-body Panel content
                 .panel-body Panel content
                 .panel-body Panel content
+.col-md-3.col-md-offset-0
+  #accordion.panel-group(role='tablist', aria-multiselectable='true')
+    .panel.panel-default
+      #headingOne.panel-heading(role='tab')
+        h4.panel-title
+          a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne') Szczegóły
+      #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+        .panel-body.input-min-max
+          .input-group.spinner
+            input.form-control(type='text', value='1', min='1', max='15')
+            .input-group-btn-vertical
+              button.btn.btn-default(type='button')
+                i.fa.fa-caret-up
+              button.btn.btn-default(type='button')
+                i.fa.fa-caret-down
+    .panel.panel-default
+      #headingTwo.panel-heading(role='tab')
+        h4.panel-title
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo') Dowody
+      #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+        .panel-body
+
+    .panel.panel-default
+      #headingThree.panel-heading(role='tab')
+        h4.panel-title
+          a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree') Ocena
+      #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
+        .panel-body
+          .box-header Ocena
+          .box-body
+            select#example-movie(name='rating')
+              option(value='1') 1/6
+              //option(value='2') 2/6
+              //option(value='3') 3/6
+              //option(value='4') 4/6
+              //option(value='5') 5/6
+              //option(value='6') 6/6

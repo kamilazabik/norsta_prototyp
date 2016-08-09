@@ -52,6 +52,15 @@ $(document).ready(function(){
     });
   });
 
+  $('.claim-hseq-4-1-1-1').click(function(e) {
+    e.preventDefault();
+    $('#content').load('./jade/main-panel.html', function(){
+      $('#content').append('<div id="panel-content" />');
+      $('#panel-content').load('./jade/4-1-1-1-panel-content.html', function(){
+      });
+    });
+  });
+
   $(function () {
     var linksContent = $('div#content div.col-md-6').find('a');
     var linksSidebar = $('div#sidebar-wrapper ul').find('a');
@@ -83,6 +92,104 @@ $(document).ready(function(){
       $(this).addClass('red');
       e.stopPropagation();
     })
+
+  });
+
+  function ratingEnable() {
+    var barRating = $('#example-movie');
+    $(barRating).barrating('show', {
+      theme: 'bars-movie'
+    });
+
+    $(barRating).barrating('set', '2');
+    //
+    // var minVal = 1;
+    // var maxVal = 10;
+    // console.log(barRating);
+    // // var barElements = $('#example-movie');
+    // // $(barRating).empty();
+    // for(var i=minVal; i<=maxVal; i++)
+    // {
+    //   $(barRating).append($("<option>").attr('value',i).text(i));
+    // }
+    // // $(barRating + ' option:eq(0)').prop('selected', true);
+    // // function setValue
+
+
+    function build() {
+
+      var minVal = 1;
+      var maxVal = 10;
+      console.log(barRating);
+      // var barElements = $('#example-movie');
+      // $(barRating).empty();
+      for(var i=minVal; i<=maxVal; i++)
+      {
+        $(barRating).append($("<option>").attr('value',i).text(i));
+      }
+      // $(barRating + ' option:eq(0)').prop('selected', true);
+      // function setValue
+
+
+      var $w = $('<div />', { 'class': 'br-widget' });
+
+      // create A elements that will replace OPTIONs
+      $(barRating).find('option').each(function() {
+        var val, text, html, $a;
+
+        // val = $(this).val();
+        val = $(this).val();
+
+        // create ratings - but only if val is defined
+        if (val) {
+          text = $(this).text();
+          html = $(this).data('html');
+          if (html) { text = html; }
+
+          $a = $('<a />', {
+            'href': '#',
+            'data-rating-value': val,
+            'data-rating-text': text,
+            'html': ($(barRating).showValues) ? text : ''
+          });
+
+          $w.append($a);
+        }
+      });
+    }
+    build();
+
+  }
+
+
+  ratingEnable();
+
+  $(function(){
+
+    var minVal = 1;
+    var maxVal = 10;
+    var barElements = $('#example-movie');
+
+
+    $('.spinner .btn:first-of-type').on('click', function() {
+      var btn = $(this);
+      var input = btn.closest('.spinner').find('input');
+      $(barElements).empty();
+      if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {
+        input.val(parseInt(input.val(), 10) + 1);
+      } else {
+        btn.next("disabled", true);
+      }
+    });
+    $('.spinner .btn:last-of-type').on('click', function() {
+      var btn = $(this);
+      var input = btn.closest('.spinner').find('input');
+      if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {
+        input.val(parseInt(input.val(), 10) - 1);
+      } else {
+        btn.prev("disabled", true);
+      }
+    });
 
   });
 
