@@ -102,79 +102,82 @@ $(document).ready(function(){
     });
 
     $(barRating).barrating('set', '2');
-    //
-    // var minVal = 1;
-    // var maxVal = 10;
-    // console.log(barRating);
-    // // var barElements = $('#example-movie');
-    // // $(barRating).empty();
-    // for(var i=minVal; i<=maxVal; i++)
-    // {
-    //   $(barRating).append($("<option>").attr('value',i).text(i));
-    // }
-    // // $(barRating + ' option:eq(0)').prop('selected', true);
-    // // function setValue
 
+    console.log(barRating);
 
     function build() {
+      var minVal = 3;
+      $('.up').on('click', function () {
+        var maxVal = $('.form-control').val();
+        console.log(maxVal);
+        $('#example-movie').append($("<option>").attr('value', maxVal).text(maxVal));
+        var $w = $('<div />', {'class': 'br-widget'});
 
-      var minVal = 1;
-      var maxVal = 10;
-      console.log(barRating);
-      // var barElements = $('#example-movie');
-      // $(barRating).empty();
-      for(var i=minVal; i<=maxVal; i++)
-      {
-        $(barRating).append($("<option>").attr('value',i).text(i));
-      }
-      // $(barRating + ' option:eq(0)').prop('selected', true);
-      // function setValue
+        // for (var i = minVal; i <= maxVal; i++) {
+        //
+        //   // var $w = $('<div />', { 'class': 'br-widget' });
+        // }
 
-
-      var $w = $('<div />', { 'class': 'br-widget' });
-
-      // create A elements that will replace OPTIONs
-      $(barRating).find('option').each(function() {
-        var val, text, html, $a;
-
-        // val = $(this).val();
-        val = $(this).val();
-
-        // create ratings - but only if val is defined
-        if (val) {
-          text = $(this).text();
-          html = $(this).data('html');
-          if (html) { text = html; }
-
-          $a = $('<a />', {
-            'href': '#',
-            'data-rating-value': val,
-            'data-rating-text': text,
-            'html': ($(barRating).showValues) ? text : ''
-          });
-
-          $w.append($a);
-        }
       });
     }
+      function buildWidget() {
+        var $w = $('<div />', {'class': 'br-widget'});
+        console.log($w);
+
+        // create A elements that will replace OPTIONs
+        $('#example-movie').find('option').each(function () {
+          var val, text, html, $a;
+
+
+
+
+          $('.up').on('click', function () {
+            val = $(this).val();
+            console.log(val);
+            // create ratings - but only if val is defined
+            if (val) {
+              text = $(this).text();
+              html = $(this).data('html');
+              if (html) {
+                text = html;
+              }
+
+              $a = $('<a />', {
+                'href': '#',
+                'data-rating-value': val,
+                'data-rating-text': text,
+                'html': text
+              });
+
+              $w.append($a);
+              // $w.append($('<div />').text('dupa'));
+              // $('div.br-widget').append($('<div />').text('dupa'));
+              $('div.br-widget').append($a);
+            }
+          })
+        });
+      }
+    buildWidget();
+
+
     build();
-
   }
-
 
   ratingEnable();
 
   $(function(){
 
-    var minVal = 1;
-    var maxVal = 10;
-    var barElements = $('#example-movie');
+    // var minVal = 1;
+    // var maxVal = 10;
+    // var barElements = $('#example-movie');
 
 
     $('.spinner .btn:first-of-type').on('click', function() {
+      // var maxVal = $('.form-control').val();
+      // console.log(maxVal);
+      // $('select').append($("<option>").attr('value', maxVal).text(maxVal + 'fff'));
       var btn = $(this);
       var input = btn.closest('.spinner').find('input');
-      $(barElements).empty();
       if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {
         input.val(parseInt(input.val(), 10) + 1);
       } else {
@@ -195,111 +198,42 @@ $(document).ready(function(){
 
 
 
+  // A WAY TO GRAPHICALLY REPRESENT A RATING VARIABLE (AN INTEGER, FROM 0 TO 100).
+// JUST USE LIKE SO:  updateIt(startValue);   WHERE 'startValue' IS A VALID INTEGER
 
-    // // $('div#sidebar-wrapper li ul > li').hide();
-    // $('div#sidebar-wrapper li.parent_li > span').on('click', function (e) {
-    //   var children = $(this).parent('li.parent_li').find(' > ul > li');
-    //   // console.log(children);
-    //   if (children.is(':visible')) {
-    //     children.hide('fast');
-    //     $(this).attr('title', 'Expand this branch').find(' > i').toggleClass('glyphicon-chevron-down glyphicon-chevron-right');
-    //     // console.log($(this));
-    //   } else {
-    //     children.show('fast');
-    //     $(this).attr('title', 'Collapse this branch').find(' > i').toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
-    //   }
-    //   e.stopPropagation();
-    // });
-  // });
+    var startValue = 50;
+    $('#starsBar2').css('width', '0px');
 
+    var fullWidth = $('#starWrapper').css('width').replace('px', '');
 
+    function updateIt(updateval) {
+      if (updateval) {
+        $('.numValue').val(updateval);
+        console.log(parseInt(fullWidth) * (updateval / 5000));
+        $('#starsBar2').css('width', parseInt(fullWidth) * (updateval / 5000) * 20 + '%');
+      };
 
-  //   $( '.panels' ).click(function() {
-  //       // $('#list-of-claims').toggleClass('hidden show');
-  //     $(this).siblings(':last').children($(this)).first().toggleClass('hidden show');
-  //     console.log($(this).siblings(':last'));
-  //       // if($("#list-of-claims").is(".hidden")){
-  //       //   $("#list-of-claims" ).removeClass( "hidden" );
-  //       // }else{
-  //       //   ("#list-of-claims").addClass( "hidden" );
-  //       // }
-  //   });
-  //
-
-    // $('.collapse.in').prev('.panel-heading').addClass('active');
-    // $('#accordion, #bs-collapse')
-    //   .on('show.bs.collapse', function(a) {
-    //     $(a.target).prev('.panel-heading').addClass('active');
-    //   })
-    //   .on('hide.bs.collapse', function(a) {
-    //     $(a.target).prev('.panel-heading').removeClass('active');
-    //   });
+      $('#starsBar2').css('background-size', fullWidth + ' 100%');
+      updateval = '';
+    };
 
 
-/**
- *  BootTree Treeview plugin for Bootstrap.
- *
- *  Based on BootSnipp TreeView Example by Sean Wessell
- *  URL:	http://bootsnipp.com/snippets/featured/bootstrap-30-treeview
- *
- *	Revised code by Leo "LeoV117" Myers
- *
- */
-// $.fn.extend({
-//   treeview:	function() {
-//     return this.each(function() {
-//       // Initialize the top levels;
-//       var tree = $(this);
-//
-//       tree.addClass('treeview-tree');
-//       tree.find('li').each(function() {
-//         var stick = $(this);
-//       });
-//       tree.find('li').has('ul').each(function () {
-//         var branch = $(this); //li with children ul
-//         // console.log(branch);
-//
-//         branch.prepend('<i class=\'tree-indicator glyphicon glyphicon-chevron-right\'></i>');
-//         branch.addClass('tree-branch');
-//         branch.on('click', function (e) {
-//           if (this == e.target) {
-//             var icon = $(this).children('i:first');
-//             console.log(icon);
-//
-//             icon.toggleClass('glyphicon-chevron-down glyphicon-chevron-right');
-//             $(this).children().children().toggle();
-//             // console.log($(this));
-//           }
-//         });
-//         branch.children().children().toggle();
-//
-//         /**
-//          *	The following snippet of code enables the treeview to
-//          *	function when a button, indicator or anchor is clicked.
-//          *
-//          *	It also prevents the default function of an anchor and
-//          *	a button from firing.
-//          */
-//         branch.children('.tree-indicator, button, a').click(function(e) {
-//           branch.click();
-//
-//           e.preventDefault();
-//         });
-//       });
-//     });
-//   }
-// });
+    $('input[type=range]').mousemove(function () {
+      updateIt($(this).val());
+    });
 
-/**
- *	The following snippet of code automatically converst
- *	any '.treeview' DOM elements into a treeview component.
- */
-// $(window).on('load', function () {
-//   $('.treeview').each(function () {
-//     var tree = $(this);
-//     tree.treeview();
-//   })
-// });
+    $('.numValue').keyup(function () {
+      updateIt($('.numValue').val());
+    });
+
+    $('input[type=range]').change(function () {
+      $('.numValue').val($(this).val())
+      updateIt($('.numValue').val());
+    });
+
+    updateIt(startValue);
+
+
 
 
 });

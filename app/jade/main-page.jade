@@ -43,11 +43,11 @@
       #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
         .panel-body.input-min-max
           .input-group.spinner
-            input.form-control(type='text', value='1', min='1', max='15')
+            input.form-control(type='text', value='3', min='3', max='15')
             .input-group-btn-vertical
-              button.btn.btn-default(type='button')
+              button.btn.btn-default.up(type='button')
                 i.fa.fa-caret-up
-              button.btn.btn-default(type='button')
+              button.btn.btn-default.down(type='button')
                 i.fa.fa-caret-down
     .panel.panel-default
       #headingTwo.panel-heading(role='tab')
@@ -55,6 +55,14 @@
           a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo') Dowody
       #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
         .panel-body
+          #barRating
+            input.numValue(type='text', readonly='', value='0', step='5', max='100', min='0')
+            br
+            input#slider1(type='range', step='5', min='0', max='100')
+            br
+            #starWrapper
+              #starsBar
+              #starsBar2
 
     .panel.panel-default
       #headingThree.panel-heading(role='tab')
@@ -66,7 +74,7 @@
           .box-body
             select#example-movie(name='rating')
               option(value='1') 1/6
-              //option(value='2') 2/6
+              option(value='2') 2/6
               //option(value='3') 3/6
               //option(value='4') 4/6
               //option(value='5') 5/6
