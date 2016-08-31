@@ -61,6 +61,35 @@ $(document).ready(function(){
     });
   });
 
+  $('.claim-hseq-4-1-2').click(function(e) {
+    e.preventDefault();
+    $('#content').load('./jade/main-panel.html', function(){
+      $('#content').append('<div id="panel-content" />');
+      $('#panel-content').load('./jade/4-1-2-panel-content.html', function(){
+      });
+    });
+  });
+
+  $('.claim-hseq-4-1-3').click(function(e) {
+    e.preventDefault();
+    $('#content').load('./jade/main-panel.html', function(){
+      $('#content').append('<div id="panel-content" />');
+      $('#panel-content').load('./jade/4-1-3-panel-content.html', function(){
+      });
+    });
+  });
+
+  $('.claim-hseq-4-1-4').click(function(e) {
+    e.preventDefault();
+    $('#content').load('./jade/main-panel.html', function(){
+      $('#content').append('<div id="panel-content" />');
+      $('#panel-content').load('./jade/4-1-4-panel-content.html', function(){
+      });
+    });
+  });
+
+
+
   $(function () {
     var linksContent = $('div#content div.col-md-6').find('a');
     var linksSidebar = $('div#sidebar-wrapper ul').find('a');
