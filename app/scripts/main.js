@@ -89,40 +89,58 @@ $(document).ready(function(){
   });
 
 
-
   $(function () {
     var linksContent = $('div#content div.col-md-6').find('a');
     var linksSidebar = $('div#sidebar-wrapper ul').find('a');
 
     $(linksContent).on('click', function (e) {
-      console.log('1');
+      // console.log('1');
       $(linksSidebar).removeClass('red');
       var clickedLink = $(this);
       $.each(linksSidebar, function (index, value) {
         // console.log(value);
         if($(value).text().indexOf(clickedLink.text().trim())>=0){
           $(value).addClass('red');
+          if($(value).is(':hidden')){
+            var children = $(value).parents();
+            console.log(children);
+            children.show('fast');
+            // $(value).show(fast);
+            console.log('prawda');
+            console.log($(value));
+          }else {
+            // children.hide('fast');
+          }
+          // console.log(value);
+          // $(value).show();
         }
+
       });
       e.stopPropagation();
     });
 
     $('#menu-projects').on('click', function (e) {
-      console.log('2');
+      // console.log('2');
       $(linksSidebar).removeClass('red');
       e.stopPropagation();
     });
 
     $(linksSidebar).on('click', function (e) {
-      console.log('3');
-      console.log(linksSidebar);
-      console.log($(this));
+      // console.log('3');
+      // console.log(linksSidebar);
+      // console.log($(this));
       $(linksSidebar).removeClass('red');
       $(this).addClass('red');
       e.stopPropagation();
     })
 
   });
+
+
+
+
+
+
 
   function ratingEnable() {
     var barRating = $('#example-movie');
@@ -132,7 +150,7 @@ $(document).ready(function(){
 
     $(barRating).barrating('set', '2');
 
-    console.log(barRating);
+    // console.log(barRating);
 
     function build() {
       var minVal = 3;
@@ -151,7 +169,7 @@ $(document).ready(function(){
     }
       function buildWidget() {
         var $w = $('<div />', {'class': 'br-widget'});
-        console.log($w);
+        // console.log($w);
 
         // create A elements that will replace OPTIONs
         $('#example-movie').find('option').each(function () {
@@ -230,37 +248,37 @@ $(document).ready(function(){
   // A WAY TO GRAPHICALLY REPRESENT A RATING VARIABLE (AN INTEGER, FROM 0 TO 100).
 // JUST USE LIKE SO:  updateIt(startValue);   WHERE 'startValue' IS A VALID INTEGER
 
-    var startValue = 50;
-    $('#starsBar2').css('width', '0px');
-
-    var fullWidth = $('#starWrapper').css('width').replace('px', '');
-
-    function updateIt(updateval) {
-      if (updateval) {
-        $('.numValue').val(updateval);
-        console.log(parseInt(fullWidth) * (updateval / 5000));
-        $('#starsBar2').css('width', parseInt(fullWidth) * (updateval / 5000) * 20 + '%');
-      };
-
-      $('#starsBar2').css('background-size', fullWidth + ' 100%');
-      updateval = '';
-    };
-
-
-    $('input[type=range]').mousemove(function () {
-      updateIt($(this).val());
-    });
-
-    $('.numValue').keyup(function () {
-      updateIt($('.numValue').val());
-    });
-
-    $('input[type=range]').change(function () {
-      $('.numValue').val($(this).val())
-      updateIt($('.numValue').val());
-    });
-
-    updateIt(startValue);
+    // var startValue = 50;
+    // $('#starsBar2').css('width', '0px');
+    //
+    // var fullWidth = $('#starWrapper').css('width').replace('px', '');
+    //
+    // function updateIt(updateval) {
+    //   if (updateval) {
+    //     $('.numValue').val(updateval);
+    //     console.log(parseInt(fullWidth) * (updateval / 5000));
+    //     $('#starsBar2').css('width', parseInt(fullWidth) * (updateval / 5000) * 20 + '%');
+    //   };
+    //
+    //   $('#starsBar2').css('background-size', fullWidth + ' 100%');
+    //   updateval = '';
+    // };
+    //
+    //
+    // $('input[type=range]').mousemove(function () {
+    //   updateIt($(this).val());
+    // });
+    //
+    // $('.numValue').keyup(function () {
+    //   updateIt($('.numValue').val());
+    // });
+    //
+    // $('input[type=range]').change(function () {
+    //   $('.numValue').val($(this).val())
+    //   updateIt($('.numValue').val());
+    // });
+    //
+    // updateIt(startValue);
 
 
 
