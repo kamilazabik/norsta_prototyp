@@ -56,13 +56,17 @@
       #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
         .panel-body
           #barRating
-            input.numValue(type='text', readonly='', value='0', step='5', max='100', min='0')
-            br
-            input#slider1(type='range', step='5', min='0', max='100')
-            br
-            #starWrapper
-              #starsBar
-              #starsBar2
+            //input.numValue(type='text', readonly='', value='0', step='5', max='100', min='0')
+            span.numberValue 0
+            //input#slider1(type='range', step='5', min='0', max='100')
+            //br
+            //#starWrapper
+            //  #starsBar
+            //  #starsBar2
+          input.slider(value='2', min='0', max='15', step='1', name='rangeslider', type='range')
+          //input(type='range', value='75')
+
+
 
     .panel.panel-default
       #headingThree.panel-heading(role='tab')

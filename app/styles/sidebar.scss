@@ -21,13 +21,13 @@
 
   .toggled {
     //padding-left: 250px;
-    padding-left: 350px;
+    padding-left: 400px;
     overflow: scroll;
   }
 
   .toggled #sidebar-wrapper {
     //width: 250px;
-    width: 350px;
+    width: 400px;
   }
 
   .toggled #page-content-wrapper {
@@ -43,11 +43,11 @@
   //position: absolute;
   position: fixed;
   //left: 250px;
-  left: 350px;
+  left: 400px;
   width: 0;
   height: 100%;
   //margin-left: -250px;
-  margin-left: -350px;
+  margin-left: -400px;
   //overflow-y: auto;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -85,7 +85,7 @@
   position: absolute;
   top: 0;
   //width: 250px;
-  width: 350px;
+  width: 400px;
   padding: 0;
   list-style: none;
   margin-top: 2px;
@@ -219,7 +219,7 @@
   }
   #wrapper {
     //padding-left: 250px;
-    padding-left: 350px;
+    padding-left: 400px;
   }
   .fixed-brand{
     width: 100px;
@@ -230,19 +230,19 @@
 
   #sidebar-wrapper {
     //width: 250px;
-    width: 350px;
+    width: 400px;
   }
 
   #wrapper.toggled #sidebar-wrapper {
     //width: 250px;
-    width: 350px;
+    width: 400px;
   }
   #wrapper.toggled-2 #sidebar-wrapper {
     width: 45px;
   }
   #wrapper.toggled-2 #sidebar-wrapper:hover {
     //width: 250px;
-    width: 350px;
+    width: 400px;
   }
 
   #page-content-wrapper {
@@ -258,7 +258,7 @@
     position: relative;
     margin-right: 0;
     //padding-left: 250px;
-    padding-left: 350px;
+    padding-left: 400px;
   }
   #wrapper.toggled-2 #page-content-wrapper {
     position: relative;
@@ -278,6 +278,10 @@
   ul {
     padding-left: 10px;
     list-style-type: none;
+  }
+
+  .white-icon {
+    color: white;
   }
 }
 

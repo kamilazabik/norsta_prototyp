@@ -102,9 +102,13 @@ $(document).ready(function(){
         if($(value).text().indexOf(clickedLink.text().trim())>=0){
           $(value).addClass('red');
           if($(value).is(':hidden')){
-            var children = $(value).parents();
-            console.log(children);
-            children.show('fast');
+            // var children = $(value).parents();
+            // var siblings2 = $(value).parent('li').nextAll().prevAll();
+            var siblings = $(value).parents('li').nextAll().prevAll();
+
+            // children.show('fast');
+            // siblings2.show('fast');
+            siblings.show('fast');
             // $(value).show(fast);
             console.log('prawda');
             console.log($(value));
@@ -139,148 +143,101 @@ $(document).ready(function(){
 
 
 
-
-
-
-  function ratingEnable() {
-    var barRating = $('#example-movie');
-    $(barRating).barrating('show', {
-      theme: 'bars-movie'
-    });
-
-    $(barRating).barrating('set', '2');
-
-    // console.log(barRating);
-
-    function build() {
-      var minVal = 3;
-      $('.up').on('click', function () {
-        var maxVal = $('.form-control').val();
-        console.log(maxVal);
-        $('#example-movie').append($("<option>").attr('value', maxVal).text(maxVal));
-        var $w = $('<div />', {'class': 'br-widget'});
-
-        // for (var i = minVal; i <= maxVal; i++) {
-        //
-        //   // var $w = $('<div />', { 'class': 'br-widget' });
-        // }
-
-      });
-    }
-      function buildWidget() {
-        var $w = $('<div />', {'class': 'br-widget'});
-        // console.log($w);
-
-        // create A elements that will replace OPTIONs
-        $('#example-movie').find('option').each(function () {
-          var val, text, html, $a;
-
-
-
-
-          $('.up').on('click', function () {
-            val = $(this).val();
-            console.log(val);
-            // create ratings - but only if val is defined
-            if (val) {
-              text = $(this).text();
-              html = $(this).data('html');
-              if (html) {
-                text = html;
-              }
-
-              $a = $('<a />', {
-                'href': '#',
-                'data-rating-value': val,
-                'data-rating-text': text,
-                'html': text
-              });
-
-              $w.append($a);
-              // $w.append($('<div />').text('dupa'));
-              // $('div.br-widget').append($('<div />').text('dupa'));
-              $('div.br-widget').append($a);
-            }
-          })
-        });
-      }
-    buildWidget();
-
-
-    build();
-  }
-
-  ratingEnable();
-
-  $(function(){
-
-    // var minVal = 1;
-    // var maxVal = 10;
-    // var barElements = $('#example-movie');
-
-
-    $('.spinner .btn:first-of-type').on('click', function() {
-      // var maxVal = $('.form-control').val();
-      // console.log(maxVal);
-      // $('select').append($("<option>").attr('value', maxVal).text(maxVal + 'fff'));
-      var btn = $(this);
-      var input = btn.closest('.spinner').find('input');
-      if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {
-        input.val(parseInt(input.val(), 10) + 1);
-      } else {
-        btn.next("disabled", true);
-      }
-    });
-    $('.spinner .btn:last-of-type').on('click', function() {
-      var btn = $(this);
-      var input = btn.closest('.spinner').find('input');
-      if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {
-        input.val(parseInt(input.val(), 10) - 1);
-      } else {
-        btn.prev("disabled", true);
-      }
-    });
-
-  });
-
-
-
-  // A WAY TO GRAPHICALLY REPRESENT A RATING VARIABLE (AN INTEGER, FROM 0 TO 100).
+//   A WAY TO GRAPHICALLY REPRESENT A RATING VARIABLE (AN INTEGER, FROM 0 TO 100).
 // JUST USE LIKE SO:  updateIt(startValue);   WHERE 'startValue' IS A VALID INTEGER
 
-    // var startValue = 50;
-    // $('#starsBar2').css('width', '0px');
-    //
-    // var fullWidth = $('#starWrapper').css('width').replace('px', '');
-    //
-    // function updateIt(updateval) {
-    //   if (updateval) {
-    //     $('.numValue').val(updateval);
-    //     console.log(parseInt(fullWidth) * (updateval / 5000));
-    //     $('#starsBar2').css('width', parseInt(fullWidth) * (updateval / 5000) * 20 + '%');
-    //   };
-    //
-    //   $('#starsBar2').css('background-size', fullWidth + ' 100%');
-    //   updateval = '';
-    // };
-    //
-    //
-    // $('input[type=range]').mousemove(function () {
-    //   updateIt($(this).val());
-    // });
-    //
-    // $('.numValue').keyup(function () {
-    //   updateIt($('.numValue').val());
-    // });
-    //
-    // $('input[type=range]').change(function () {
-    //   $('.numValue').val($(this).val())
-    //   updateIt($('.numValue').val());
-    // });
-    //
-    // updateIt(startValue);
-
-
-
-
+//     var startValue = 50;
+//     // $('#starsBar2').css('width', '0px');
+//
+//     var fullWidth = $('#starWrapper').css('width').replace('px', '');
+//
+//     function updateIt(updateval) {
+//       if (updateval) {
+//         $('.numValue').val(updateval);
+//         // console.log(parseInt(fullWidth) * (updateval / 5000));
+//         // $('#starsBar2').css('width', parseInt(fullWidth) * (updateval / 5000) * 20 + '%');
+//       };
+//
+//       // $('#starsBar2').css('background-size', fullWidth + ' 100%');
+//       updateval = '';
+//     };
+//
+//
+//     $('input[type=range]').mousemove(function () {
+//       updateIt($(this).val());
+//     });
+//
+//     $('.numValue').keyup(function () {
+//       updateIt($('.numValue').val());
+//     });
+//
+//     $('input[type=range]').change(function () {
+//       $('.numValue').val($(this).val());
+//       updateIt($('.numValue').val());
+//     });
+//
+//     updateIt(startValue);
+//
+//
+//
 });
+
+
+
+$("document").ready(function() {
+  $(".slider").rangeslider();
+});
+
+$.fn.rangeslider = function(options) {
+  var obj = this;
+  var defautValue = obj.attr("value");
+  obj.wrap("<span class='range-slider'></span>");
+  obj.after("<span class='slider-container'>" +
+    "<span class='bar'>" +
+    "<span class='pasek1'></span>" +
+      "<span class ='pasek'></span>" +
+    "</span><span class='bar-btn'>" +
+    // "<span>0</span>" +
+    "</span></span>");
+  // obj.after("<span class='slider-container'><span class='bar'><span></span></span><span class='bar-btn'><span>0</span></span></span>");
+  obj.attr("oninput", "updateSlider(this)");
+  updateSlider(this);
+  return obj;
+};
+
+
+function updateSlider(passObj) {
+  var obj = $(passObj);
+
+  var min = obj.attr("min");
+  var max = obj.attr("max");
+  var t = 100/max;
+  var max2 = max * t;
+  obj.attr("max", max2);
+  var value = obj.val() * t;
+  var range = Math.round(max - min) * t;
+  console.log("t: " + t);
+  console.log("max: " + max);
+  console.log("max2: " + max);
+  console.log("range: " + range);
+  console.log("value: " + value);
+  // var percentage = Math.round((value - min) * 100 / range);
+  var percentage = Math.round((value - min));
+  console.log("percentage:"  + percentage)
+  var nextObj = obj.next();
+  nextObj.find("span.bar-btn").css("left", percentage + "%");
+  // nextObj.find("span.pasek").css("right", max);
+  // nextObj.find("span.pasek").css("left", value);
+  // $('span.pasek').css("left", value + "%").
+  // console.log(t);
+
+  nextObj.find("span.bar > span.pasek1").css("width", percentage + "%");
+  nextObj.find("span.bar > span.pasek").css("width", max - percentage + '%' );
+  // nextObj.find("span.bar > span.pasek2").css("width", value + "%");
+  // nextObj.find("span.bar-btn > span").text(percentage);
+  $('.numValue').val(percentage);
+  $('.numberValue').text(percentage);
+};
+
+
+
