@@ -110,8 +110,8 @@ $(document).ready(function(){
             // siblings2.show('fast');
             siblings.show('fast');
             // $(value).show(fast);
-            console.log('prawda');
-            console.log($(value));
+            // console.log('prawda');
+            // console.log($(value));
           }else {
             // children.hide('fast');
           }
@@ -141,52 +141,10 @@ $(document).ready(function(){
   });
 
 
-
-
-//   A WAY TO GRAPHICALLY REPRESENT A RATING VARIABLE (AN INTEGER, FROM 0 TO 100).
-// JUST USE LIKE SO:  updateIt(startValue);   WHERE 'startValue' IS A VALID INTEGER
-
-//     var startValue = 50;
-//     // $('#starsBar2').css('width', '0px');
-//
-//     var fullWidth = $('#starWrapper').css('width').replace('px', '');
-//
-//     function updateIt(updateval) {
-//       if (updateval) {
-//         $('.numValue').val(updateval);
-//         // console.log(parseInt(fullWidth) * (updateval / 5000));
-//         // $('#starsBar2').css('width', parseInt(fullWidth) * (updateval / 5000) * 20 + '%');
-//       };
-//
-//       // $('#starsBar2').css('background-size', fullWidth + ' 100%');
-//       updateval = '';
-//     };
-//
-//
-//     $('input[type=range]').mousemove(function () {
-//       updateIt($(this).val());
-//     });
-//
-//     $('.numValue').keyup(function () {
-//       updateIt($('.numValue').val());
-//     });
-//
-//     $('input[type=range]').change(function () {
-//       $('.numValue').val($(this).val());
-//       updateIt($('.numValue').val());
-//     });
-//
-//     updateIt(startValue);
-//
-//
-//
-});
-
-
-
-$("document").ready(function() {
   $(".slider").rangeslider();
 });
+
+var slidersMemo;
 
 $.fn.rangeslider = function(options) {
   var obj = this;
@@ -199,44 +157,58 @@ $.fn.rangeslider = function(options) {
     "</span><span class='bar-btn'>" +
     // "<span>0</span>" +
     "</span></span>");
-  // obj.after("<span class='slider-container'><span class='bar'><span></span></span><span class='bar-btn'><span>0</span></span></span>");
   obj.attr("oninput", "updateSlider(this)");
-  updateSlider(this);
+  updateSlider(this, slidersMemo);
   return obj;
 };
 
+function updateSlider(passObj, memo) {
 
-function updateSlider(passObj) {
   var obj = $(passObj);
-
+  var value = obj.val();
   var min = obj.attr("min");
   var max = obj.attr("max");
+  // var settingValue = $(".settingValue").val();
+  // var max = settingValue;
+  // console.log("settingValue: " + settingValue);
   var t = 100/max;
-  var max2 = max * t;
-  obj.attr("max", max2);
-  var value = obj.val() * t;
-  var range = Math.round(max - min) * t;
-  console.log("t: " + t);
-  console.log("max: " + max);
-  console.log("max2: " + max);
-  console.log("range: " + range);
+  // var max2 = max;
+  // obj.attr("max", max2);
+
+  var range = Math.round(max - min)
+  // console.log("t: " + t);
+  // console.log("max: " + max);
+  // console.log("max2: " + max);
+  // console.log("range: " + range);
   console.log("value: " + value);
-  // var percentage = Math.round((value - min) * 100 / range);
-  var percentage = Math.round((value - min));
-  console.log("percentage:"  + percentage)
+  var percentage = Math.round((value - min) * 100 / range);
+  // console.log("percentage:"  + percentage)
   var nextObj = obj.next();
   nextObj.find("span.bar-btn").css("left", percentage + "%");
-  // nextObj.find("span.pasek").css("right", max);
-  // nextObj.find("span.pasek").css("left", value);
-  // $('span.pasek').css("left", value + "%").
-  // console.log(t);
-
   nextObj.find("span.bar > span.pasek1").css("width", percentage + "%");
-  nextObj.find("span.bar > span.pasek").css("width", max - percentage + '%' );
-  // nextObj.find("span.bar > span.pasek2").css("width", value + "%");
-  // nextObj.find("span.bar-btn > span").text(percentage);
-  $('.numValue').val(percentage);
-  $('.numberValue').text(percentage);
+  nextObj.find("span.bar > span.pasek").css("width", max * t - percentage + '%' );
+  console.log("passObj[0]: " + $(passObj[0]));
+  console.log("# + obj[0].name: " + $("#"+obj[0].name));
+
+  var nn = obj[0].name.replace("rangeslider","");
+  console.log("nn: " + nn);
+  if(memo)
+  {
+    $(passObj[nn-1]).val(memo[obj[0].name]);
+    updateSlider(passObj[nn-1], null);
+    return;
+  }
+  $('#numberValue'+nn).text(percentage / t + "/" + max);
+
+  if(!slidersMemo)
+  {
+    slidersMemo={};
+  }
+  // slidersMemo[obj[0].name] = value;
+  slidersMemo[obj[0].name] = value;
+
+  console.log("slidersMemo: " + slidersMemo);
+
 };
 
 
