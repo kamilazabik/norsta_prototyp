@@ -142,6 +142,34 @@ $(document).ready(function(){
 
 
   $(".slider").rangeslider();
+
+  $('.filter-select').on('change', function (e) {
+
+    var filterGroup = $('.filter-group');
+    filterGroup.find('.hseq').removeClass('hide');
+
+    $('.filter-select').each(function(){
+      applyFilter(filterGroup, $(this).data('filter-name'), $(this).val());
+      console.log($(this).data('filter-name'));
+    })
+
+
+    function applyFilter(filterGroup, filterName, filterValue) {
+      filterGroup.find('.hseq').each(function(index, element){
+        // console.log(index);
+        console.log(element);
+        var testValue = $(element).data(filterName).toString();
+        console.log(testValue);
+        if (filterValue !== 'All' && testValue !== filterValue) {
+          $(element).addClass('hide');
+        }
+      })
+    }
+
+
+  })
+
+
 });
 
 var slidersMemo;
@@ -187,15 +215,22 @@ function updateSlider(passObj, memo) {
   nextObj.find("span.bar-btn").css("left", percentage + "%");
   nextObj.find("span.bar > span.pasek1").css("width", percentage + "%");
   nextObj.find("span.bar > span.pasek").css("width", max * t - percentage + '%' );
-  console.log("passObj[0]: " + $(passObj[0]));
-  console.log("# + obj[0].name: " + $("#"+obj[0].name));
 
   var nn = obj[0].name.replace("rangeslider","");
-  console.log("nn: " + nn);
   if(memo)
   {
-    $(passObj[nn-1]).val(memo[obj[0].name]);
-    updateSlider(passObj[nn-1], null);
+    $.each(passObj, function (idx, val) {
+      var memVal = memo[obj[idx].name];
+      if(!memVal)
+      {
+        memVal=0;
+      }
+      console.log("idx" + idx);
+      console.log(memo[obj[idx].name]);
+      $(passObj[idx]).val(memVal);
+      updateSlider(passObj[idx], null);
+    });
+
     return;
   }
   $('#numberValue'+nn).text(percentage / t + "/" + max);
@@ -207,9 +242,12 @@ function updateSlider(passObj, memo) {
   // slidersMemo[obj[0].name] = value;
   slidersMemo[obj[0].name] = value;
 
-  console.log("slidersMemo: " + slidersMemo);
+  // console.log("slidersMemo: " + slidersMemo);
 
 };
+
+
+
 
 
 

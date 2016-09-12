@@ -81,7 +81,7 @@
 
   h4 {
     font-weight: 400;
-    line-height: 2.4;
+    line-height: 1.4;
   }
 
   svg {
@@ -190,6 +190,12 @@ circle {
   fill: #e2282b;
   stroke: #45d666;
   stroke-width: 32;
+}
+
+.container-fluid .panels .col-md-1-1 {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
 //svg {

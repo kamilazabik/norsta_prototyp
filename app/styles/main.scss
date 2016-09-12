@@ -34,6 +34,9 @@ $icon-font-path: '../fonts/';
     .col-md-offset-1 {
        @include make-md-column-offset(0.7);
     }
+    .col-md-1-1 {
+      @include make-md-column( 1 );
+    }
   }
   //$grid-columns: 12;
 }
@@ -380,4 +383,6 @@ span.numberValue {
   font-size: 16px;
 }
 
-
+.hide {
+  display: none;
+}

@@ -3,20 +3,27 @@
     .row
       .col-md-1.col-md-offset-0.box-under-header.pull-left.number
         h4 4.1.1
-      .col-md-6.box-under-header.pull-left.title
+      .col-md-5.box-under-header.pull-left.title
         h4 Procedura określa wymagania związane z produktem/usługą
       .col-md-3.box-under-header.assessment-icon
         h4 Ocena
-      .col-md-2
+      .col-md-1-1.box-under-header.assessment-icon
+        select#filterHSEQ.form-control.filter-select(name='filterHSEQ', data-filter-name='hseq')
+          option(value='All') All
+          option(value='HS') HS
+          option(value='E') E
+          option(value='Q') Q
+      .col-md-1
         //button.btn.btn-assessment.btn-sm(type='button') Oceń
         //button.claim-hseq-3.btn.btn-default.navbar-btn(type='button')
         //  i.fa.fa-angle-double-left(aria-hidden='true')
         button.claim-hseq-4-1-2.btn.btn-default.navbar-btn(type='button')
           i.fa.fa-angle-double-right(aria-hidden='true')
-  .col-md-12.col-md-offset-0.panels
-    .row
+  .col-md-12.col-md-offset-0.panels.filter-group
+    .row.hseq(data-hseq="Q")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.1.1
+        h5 Q
       .panel.col-md-5.box-under-header-sx.pull-left.title
         a.claim-hseq-4-1-1-1(href='#')
           h5 Wymagania ustalone przez klienta
@@ -34,9 +41,10 @@
         span#numberValue1.numberValue 0/10
         input.settingValue
         input.slider(value='0', min='0', max='10', step='1', name='rangeslider1', type='range')
-    .row
+    .row.hseq(data-hseq="Q")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.1.2
+        h5 Q
       .panel.col-md-5.box-under-header-sx.pull-left.title
         a(href='#')
           h5 Wymagania nieustalone przez klienta, ale niezbędne do określonego lub zamierzonego zastosowania wyrobu/usługi
@@ -53,8 +61,10 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span#numberValue2.numberValue 0/10
         input.slider(value='0', min='0', max='10', step='1', name='rangeslider2', type='range')
+    .row.hseq(data-hseq="E")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.1.3
+        h5 E
       .panel.col-md-5.box-under-header-sx.pull-left.title
         a(href='#')
           h5 Wymagania przepisów prawnychi innych mających zastosowanie do wyrobu/usługi
@@ -71,6 +81,7 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span#numberValue3.numberValue 0/10
         input.slider(value='0', min='0', max='10', step='1', name='rangeslider3', type='range')
+    .row.hseq(data-hseq="")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.1.4
       .panel.col-md-5.box-under-header-sx.pull-left.title
