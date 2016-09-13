@@ -61,6 +61,15 @@ $(document).ready(function(){
     });
   });
 
+  $('.claim-hseq-4-1-1-3').click(function(e) {
+    e.preventDefault();
+    $('#content').load('./jade/main-panel.html', function(){
+      $('#content').append('<div id="panel-content" />');
+      $('#panel-content').load('./jade/4-1-1-3-panel-content.html', function(){
+      });
+    });
+  });
+
   $('.claim-hseq-4-1-2').click(function(e) {
     e.preventDefault();
     $('#content').load('./jade/main-panel.html', function(){
@@ -173,6 +182,7 @@ $(document).ready(function(){
 });
 
 var slidersMemo;
+console.log(slidersMemo);
 
 $.fn.rangeslider = function(options) {
   var obj = this;
@@ -181,7 +191,7 @@ $.fn.rangeslider = function(options) {
   obj.after("<span class='slider-container'>" +
     "<span class='bar'>" +
     "<span class='pasek1'></span>" +
-      "<span class ='pasek'></span>" +
+    "<span class ='pasek'></span>" +
     "</span><span class='bar-btn'>" +
     // "<span>0</span>" +
     "</span></span>");
@@ -196,19 +206,11 @@ function updateSlider(passObj, memo) {
   var value = obj.val();
   var min = obj.attr("min");
   var max = obj.attr("max");
-  // var settingValue = $(".settingValue").val();
-  // var max = settingValue;
-  // console.log("settingValue: " + settingValue);
   var t = 100/max;
-  // var max2 = max;
-  // obj.attr("max", max2);
 
-  var range = Math.round(max - min)
-  // console.log("t: " + t);
-  // console.log("max: " + max);
-  // console.log("max2: " + max);
-  // console.log("range: " + range);
-  console.log("value: " + value);
+  var range = Math.round(max - min);
+
+  // console.log("value: " + value);
   var percentage = Math.round((value - min) * 100 / range);
   // console.log("percentage:"  + percentage)
   var nextObj = obj.next();
@@ -217,6 +219,9 @@ function updateSlider(passObj, memo) {
   nextObj.find("span.bar > span.pasek").css("width", max * t - percentage + '%' );
 
   var nn = obj[0].name.replace("rangeslider","");
+  var nn1 = obj[0].name.replace("slider","");
+  var nn2 = obj[0].name.replace("sss","");
+  console.log(nn2)
   if(memo)
   {
     $.each(passObj, function (idx, val) {
@@ -225,8 +230,8 @@ function updateSlider(passObj, memo) {
       {
         memVal=0;
       }
-      console.log("idx" + idx);
-      console.log(memo[obj[idx].name]);
+      // console.log("idx" + idx);
+      // console.log(memo[obj[idx].name]);
       $(passObj[idx]).val(memVal);
       updateSlider(passObj[idx], null);
     });
@@ -234,6 +239,8 @@ function updateSlider(passObj, memo) {
     return;
   }
   $('#numberValue'+nn).text(percentage / t + "/" + max);
+  $('#numberValue1'+nn1).text(percentage / t + "/" + max);
+  $('#numberValue2'+nn2).text(percentage / t + "/" + max);
 
   if(!slidersMemo)
   {
@@ -242,12 +249,31 @@ function updateSlider(passObj, memo) {
   // slidersMemo[obj[0].name] = value;
   slidersMemo[obj[0].name] = value;
 
+
   // console.log("slidersMemo: " + slidersMemo);
+  var vals = Object.keys(slidersMemo)
+    .filter(function (key) {
+      if (key.length == 7)  {
+        console.log('true');
+        return slidersMemo[key];
+    }
+  }).map(function (key) {
+    return parseInt(slidersMemo[key]);
+  }).reduce(function(a, b, index) {
+    return a + b; }, 0);
+
+  console.log(vals);
+
+  // var averageRating = $('.averageRating').attr('value', vals)
 
 };
 
 
 
-
+// var vals = Object.keys(slidersMemo).map(function (key) {
+//   return slidersMemo[key];
+// });
+//
+// console.log(vals);
 
 

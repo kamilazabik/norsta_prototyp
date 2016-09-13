@@ -1,12 +1,23 @@
 .col-md-9.col-md-offset-0.pull-leftl.panel-margin
   .col-md-12.col-md-offset-0.panels
-    .row
+    .row.hseq(data-hseq="")
       .col-md-1.col-md-offset-0.box-under-header.pull-left.number
-        h4 4.1.1
+        h4 4.1.1.3
       .col-md-5.box-under-header.pull-left.title
-        h4 Procedura określa wymagania związane z produktem/usługą
-      .col-md-3.box-under-header.assessment-icon
-        h4 Ocena
+        h4 Wymagania przepisów prawnychi innych mających zastosowanie do wyrobu/usługi
+      .col-md-3.box-under-header-sx.assessment-icon.pull-left
+        .row
+          .col-md-3
+            .pie.pull-left 60%
+          .col-md-3
+            h6 Wynik
+            h6 Oceniono
+          .col-md-3
+            h6.text-right 2264/4000
+            h6.text-right 60%
+      .col-md-2.box-under-header-sx.assessment-icon
+        span#numberValue20.numberValue 0/10
+        input.slider.averageRating(value='0', min='0', max='15', step='1', name='sss1', type='range')
       .col-md-1-1.box-under-header.assessment-icon
         select#filterHSEQ.form-control.filter-select(name='filterHSEQ', data-filter-name='hseq')
           option(value='All') All
@@ -20,13 +31,13 @@
         button.claim-hseq-4-1-2.btn.btn-default.navbar-btn(type='button')
           i.fa.fa-angle-double-right(aria-hidden='true')
   .col-md-12.col-md-offset-0.panels.filter-group
-    .row.hseq(data-hseq="Q")
+    .row.hseq(data-hseq="HS")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
-        h5 4.1.1.1
-        h5 Q
+        h5 4.1.1.3
+        h5 HS
       .panel.col-md-5.box-under-header-sx.pull-left.title
         a.claim-hseq-4-1-1-1(href='#')
-          h5 Wymagania ustalone przez klienta
+          h5 Wymagania przepisów prawnychi innych mających zastosowanie do wyrobu/usługi
       .col-md-3.box-under-header-sx.assessment-icon.pull-left
         .row
           .col-md-3
@@ -38,35 +49,15 @@
             h6.text-right 2264/4000
             h6.text-right 60%
       .col-md-3.box-under-header-sx.assessment-icon
-        span#numberValue1.numberValue 0/10
+        span#numberValue11.numberValue 0/10
         input.settingValue
-        input.slider(value='0', min='0', max='10', step='1', name='rangeslider1', type='range')
-    .row.hseq(data-hseq="Q")
-      .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
-        h5 4.1.1.2
-        h5 Q
-      .panel.col-md-5.box-under-header-sx.pull-left.title
-        a(href='#')
-          h5 Wymagania nieustalone przez klienta, ale niezbędne do określonego lub zamierzonego zastosowania wyrobu/usługi
-      .col-md-3.box-under-header-sx.assessment-icon
-        .row
-          .col-md-3
-            .pie.pull-left 60%
-          .col-md-3
-            h6 Wynik
-            h6 Oceniono
-          .col-md-3
-            h6.text-right 2264/4000
-            h6.text-right 60%
-      .col-md-2.box-under-header-sx.assessment-icon
-        span#numberValue2.numberValue 0/10
-        input.slider(value='0', min='0', max='10', step='1', name='rangeslider2', type='range')
+        input.slider(value='0', min='0', max='5', step='1', name='slider1', type='range')
     .row.hseq(data-hseq="E")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.1.3
-        h5
+        h5 E
       .panel.col-md-5.box-under-header-sx.pull-left.title
-        a.claim-hseq-4-1-1-3(href='#')
+        a(href='#')
           h5 Wymagania przepisów prawnychi innych mających zastosowanie do wyrobu/usługi
       .col-md-3.box-under-header-sx.assessment-icon
         .row
@@ -79,14 +70,15 @@
             h6.text-right 2264/4000
             h6.text-right 60%
       .col-md-2.box-under-header-sx.assessment-icon
-        span#numberValue3.numberValue 0/10
-        input.slider(value='0', min='0', max='10', step='1', name='rangeslider3', type='range')
-    .row.hseq(data-hseq="")
+        span#numberValue12.numberValue 0/10
+        input.slider(value='0', min='0', max='5', step='1', name='slider2', type='range')
+    .row.hseq(data-hseq="Q")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
-        h5 4.1.1.4
+        h5 4.1.1.3
+        h5 Q
       .panel.col-md-5.box-under-header-sx.pull-left.title
         a(href='#')
-          h5 Wszystkie inne wymagania uznane przez organizację za niezbędne
+          h5 Wymagania przepisów prawnychi innych mających zastosowanie do wyrobu/usługi
       .col-md-3.box-under-header-sx.assessment-icon
         .row
           .col-md-3
@@ -98,8 +90,26 @@
             h6.text-right 2264/4000
             h6.text-right 60%
       .col-md-2.box-under-header-sx.assessment-icon
-        span#numberValue4.numberValue 0/10
-        input.slider(value='0', min='0', max='10', step='1', name='rangeslider4', type='range')
+        span#numberValue13.numberValue 0/10
+        input.slider(value='0', min='0', max='5', step='1', name='slider3', type='range')
+  //.col-md-11.col-md-offset-0
+  //  .row
+  //    .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
+  //      h5
+  //    .panel.col-md-6.box-under-header-sx.pull-left.title
+  //      a(href='#')
+  //        h5 Identyfikowanie aspektów
+  //    .col-md-3.box-under-header-sx.assessment-icon
+  //      .row
+  //        .col-md-3
+  //          .pie.pull-left 60%
+  //        .col-md-3
+  //          h6 Wynik
+  //          h6 Oceniono
+  //        .col-md-3
+  //          h6.text-right 2264/4000
+  //          h6.text-right 60%
+
 .col-md-3.col-md-offset-0.pull-right.panel-margin
   #accordion.panel-group(role='tablist', aria-multiselectable='true')
     .panel.panel-default
@@ -108,21 +118,20 @@
           a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne') Szczegóły
       #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
         .panel-body
-          | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
     .panel.panel-default
       #headingTwo.panel-heading(role='tab')
         h4.panel-title
           a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo') Dowody
       #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
         .panel-body
-          | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+          | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
     .panel.panel-default
       #headingThree.panel-heading(role='tab')
         h4.panel-title
           a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree') Ocena
       #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
-        .panel-body
-          | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
 
   #bs-collapse.panel-group.wrap
     .panel
