@@ -182,6 +182,9 @@ $(document).ready(function(){
 });
 
 var slidersMemo;
+var sum;
+var per;
+
 console.log(slidersMemo);
 
 $.fn.rangeslider = function(options) {
@@ -203,16 +206,15 @@ $.fn.rangeslider = function(options) {
 function updateSlider(passObj, memo) {
 
   var obj = $(passObj);
+  console.log(obj);
   var value = obj.val();
+  console.log("value: " + value);
   var min = obj.attr("min");
   var max = obj.attr("max");
   var t = 100/max;
 
   var range = Math.round(max - min);
-
-  // console.log("value: " + value);
   var percentage = Math.round((value - min) * 100 / range);
-  // console.log("percentage:"  + percentage)
   var nextObj = obj.next();
   nextObj.find("span.bar-btn").css("left", percentage + "%");
   nextObj.find("span.bar > span.pasek1").css("width", percentage + "%");
@@ -220,41 +222,93 @@ function updateSlider(passObj, memo) {
 
   var nn = obj[0].name.replace("rangeslider","");
   var nn1 = obj[0].name.replace("slider","");
-  var nn2 = obj[0].name.replace("sss","");
-  console.log(nn2)
-  if(memo)
-  {
-    $.each(passObj, function (idx, val) {
-      var memVal = memo[obj[idx].name];
-      if(!memVal)
-      {
-        memVal=0;
-      }
-      // console.log("idx" + idx);
-      // console.log(memo[obj[idx].name]);
-      $(passObj[idx]).val(memVal);
-      updateSlider(passObj[idx], null);
-    });
+  var nn2 = obj[0].name.replace("allRating","");
+  console.log("nn2: "  + nn2);
 
-    return;
+
+  if(memo){
+    if(obj.attr('data-children') != null){
+
+      console.log("mam attr children");
+
+      $.each(passObj, function (idx, val) {
+        // var memVal = memo[obj[idx].name];
+        var memVal = sum;
+        if(!memVal)
+        {
+          memVal=0;
+        }
+        $(passObj[idx]).val(memVal);
+        updateSlider(passObj[idx], sum);
+        // obj.disabled = true;
+      });
+    }else {
+      $.each(passObj, function (idx, val) {
+        var memVal = memo[obj[idx].name];
+        console.log("memValue: " + memVal );
+        if(!memVal)
+        {
+          memVal=0;
+        }
+        $(passObj[idx]).val(memVal);
+        updateSlider(passObj[idx], null);
+      });
+      return;
+      }
   }
-  $('#numberValue'+nn).text(percentage / t + "/" + max);
-  $('#numberValue1'+nn1).text(percentage / t + "/" + max);
-  $('#numberValue2'+nn2).text(percentage / t + "/" + max);
+
+  // if(obj.attr('data-children') != null){
+  //
+  //   console.log("mam attr children");
+  //
+  //   $.each(passObj, function (idx, val) {
+  //     // var memVal = memo[obj[idx].name];
+  //     var memVal = sum;
+  //     if(!memVal)
+  //     {
+  //       memVal=0;
+  //     }
+  //     $(passObj[idx]).val(memVal);
+  //     updateSlider(passObj[idx], sum);
+  //     // obj.disabled = true;
+  //   });
+  // }
+  //
+  // else if(memo){
+  //   $.each(passObj, function (idx, val) {
+  //     var memVal = memo[obj[idx].name];
+  //     console.log("memValue: " + memVal )
+  //     if(!memVal)
+  //     {
+  //       memVal=0;
+  //     }
+  //     $(passObj[idx]).val(memVal);
+  //     updateSlider(passObj[idx], sum);
+  //   });
+  //   return;
+  // }
+
+  $('.numberValue-4-1-'+ nn).text(percentage / t + "/" + max);
+  $('.numberValue-4-1-1-'+ nn1).text(percentage / t + "/" + max);
+  $('.numberValue-all-4-1-1'+ nn2).text(percentage / t + "/" + max);
+
+  // $('.numberValue-per-4-1-'+ nn).text(percentage + '%');
+  per = percentage + '%';
+  console.log('per: ' + per)
+
+
 
   if(!slidersMemo)
   {
     slidersMemo={};
   }
-  // slidersMemo[obj[0].name] = value;
   slidersMemo[obj[0].name] = value;
 
 
   // console.log("slidersMemo: " + slidersMemo);
-  var vals = Object.keys(slidersMemo)
+ sum = Object.keys(slidersMemo)
     .filter(function (key) {
       if (key.length == 7)  {
-        console.log('true');
         return slidersMemo[key];
     }
   }).map(function (key) {
@@ -262,9 +316,8 @@ function updateSlider(passObj, memo) {
   }).reduce(function(a, b, index) {
     return a + b; }, 0);
 
-  console.log(vals);
+  console.log("sum: " + sum);
 
-  // var averageRating = $('.averageRating').attr('value', vals)
 
 };
 
@@ -276,4 +329,29 @@ function updateSlider(passObj, memo) {
 //
 // console.log(vals);
 
+function $$(selector, context) {
+  context = context || document;
+  var elements = context.querySelectorAll(selector);
+  return Array.prototype.slice.call(elements);
+}
+
+$$('.pie').forEach(function(pie) {
+  // var p = parseFloat(pie.textContent);
+  var p = per;
+  console.log('per: '+ per);
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(NS, 'svg');
+  var circle = document.createElementNS(NS, 'circle');
+  var title = document.createElementNS(NS, 'title');
+  circle.setAttribute('r', 16);
+  circle.setAttribute('cx', 16);
+  circle.setAttribute('cy', 16);
+  circle.setAttribute('stroke-dasharray', p + ' 100');
+  svg.setAttribute('viewBox', '0 0 32 32');
+  title.textContent = pie.textContent;
+  pie.textContent = '';
+  svg.appendChild(title);
+  svg.appendChild(circle);
+  pie.appendChild(svg);
+});
 

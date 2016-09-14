@@ -192,12 +192,20 @@ circle {
   stroke-width: 32;
 }
 
-.container-fluid .panels .col-md-1-1 {
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-}
+.container-fluid {
 
+  .panels .col-md-1-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+
+  .panels-md .col-md-1-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+}
 //svg {
 //  background-color: #313547;
 //  border-radius: 50%;
