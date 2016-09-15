@@ -320,12 +320,14 @@ function updateSlider(passObj, memo) {
     svg.appendChild(title);
     svg.appendChild(circle);
     pie.appendChild(svg);
-    console.log(pie)
+    console.log('pie:' + pie);
   }
 
 
 
-  var pie1 = document.getElementById("pie" + nn);
+  var pie1 = document.getElementById("pie1");
+  console.log("pie1")
+  console.log(pie1)
   // updatePie($('#pie' + nn));
   updatePie(pie1);
 
