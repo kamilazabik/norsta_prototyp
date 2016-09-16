@@ -304,10 +304,11 @@ function updateSlider(passObj, memo) {
 
   var pie = document.getElementById("pie4-1-1-1");
   var pie1 = document.getElementById("pie4-1-1-2");
+  var pie2 = document.getElementById("pie4-1-1");
   // console.log('pie:' + pie);
   // var pie1 = document.getElementById("pie1");
 
-  var pie2 = document.getElementById("pie2");
+  // var pie2 = document.getElementById("pie2");
   // console.log("pie1")
   // console.log(pie1)
   // console.log("pie2")
@@ -317,6 +318,7 @@ function updateSlider(passObj, memo) {
   // updatePie(pie2);
   updatePie(pie);
   updatePie(pie1);
+  updatePie(pie2);
 
   function updatePie(pie) {
     console.log(pie.getAttribute('data-name'))
