@@ -18,12 +18,12 @@ $(document).ready(function(){
     var links = $("a[class^='claim']");
     links.each(function(){
       var className = $(this);
-      var firstClass = className.attr('class').split(" ")[0].replace("claim-hseq","");
+      var numberClass = className.attr('class').split(" ")[0].replace("claim-hseq","");
       $(className).on('click', function (e) {
         e.preventDefault();
         $('#content').load('./jade/main-panel.html', function(){
           $('#content').append('<div id="panel-content" />');
-          $('#panel-content').load('./jade/' + firstClass + '-panel-content.html', function(){
+          $('#panel-content').load('./jade/' + numberClass + '-panel-content.html', function(){
           });
         });
       })
@@ -226,35 +226,58 @@ function updateSlider(passObj, memo) {
   slidersMemo[obj[0].name] = value;
 
 
+
   var pie = document.getElementById("pie4-1-1-1");
   var pie1 = document.getElementById("pie4-1-1-2");
-  var pie2 = document.getElementById("pie4-1-1");
-  // console.log('pie:' + pie);
-  // var pie1 = document.getElementById("pie1");
+  // var pie2 = document.getElementById("pie4-1-1");
+  var pie2 = $("#pie4-1-1").html();
+  var pie3 = $("div[id^='pie']");
 
-  // var pie2 = document.getElementById("pie2");
-  // console.log("pie1")
-  // console.log(pie1)
-  // console.log("pie2")
-  // console.log(pie2)
-  // // updatePie($('#pie' + nn));
-  // // updatePie(pie1);
-  // updatePie(pie2);
+  pie3.each(function() {
+    var pieName = $(this);
+    console.log(pieName)
+    // var numberPie = pie3.attr('class').split(" ")[0].replace("pie","");
+    var numberPie = pieName.attr('id').replace("pie","");
+    var numberPie1 = pieName.attr('id').slice(0,3);
+    console.log('numberPie')
+    console.log(numberPie)
+    console.log('numberPie1')
+    console.log(numberPie1)
+    var pie5 = $("#" + numberPie1 + numberPie);
+    var pie6 = document.getElementById("#" + numberPie1 + numberPie);
+    console.log('pie5')
+    console.log(pie5)
+    console.log('pie6')
+    console.log(pie6)
+    // updatePie(pie5);
+
+  })
+
+
+  // console.log('pie3:' + pie3);
+  console.log('pie3');
+  console.log(pie3);
+  console.log('pie2');
+  console.log(pie2);
+
   updatePie(pie);
   updatePie(pie1);
   updatePie(pie2);
+
+  // updatePie(pie3);
+
 
   function updatePie(pie) {
     console.log(pie.getAttribute('data-name'))
     console.log(obj[0].name)
     if(obj[0].name == pie.getAttribute('data-name')){
-      console.log("tak")
+      // console.log("tak")
       var p = percentage;
       if(!p)
       {
         p=0;
       }
-      console.log('p: '+ p);
+      // console.log('p: '+ p);
       var NS = 'http://www.w3.org/2000/svg';
       var svg = document.createElementNS(NS, 'svg');
       var circle = document.createElementNS(NS, 'circle')
