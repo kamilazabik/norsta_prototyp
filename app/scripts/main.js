@@ -14,89 +14,23 @@ $(document).ready(function(){
       });
     });
 
-
-  $('.claim-hseq-3').click(function(e) {
-    e.preventDefault();
-    $('#content').load('./jade/main-panel.html', function(){
-      $('#content').append('<div id="panel-content" />');
-      $('#panel-content').load('./jade/1-panel-content.html', function(){
-      });
-    });
-    $('#main-panel').addClass('fixed');
-  });
-
-  $('.claim-hseq-4').click(function(e) {
-    e.preventDefault();
-  $('#content').load('./jade/main-panel.html', function(){
-      $('#content').append('<div id="panel-content" />');
-      $('#panel-content').load('./jade/4-panel-content.html', function(){
-    });
-  });
-});
-
-  $('.claim-hseq-4-1').click(function(e) {
-    e.preventDefault();
-    $('#content').load('./jade/main-panel.html', function(){
-      $('#content').append('<div id="panel-content" />');
-      $('#panel-content').load('./jade/4.1-panel-content.html', function(){
-      });
+  $(function loadPage(){
+    var links = $("a[class^='claim']");
+    links.each(function(){
+      var className = $(this);
+      var firstClass = className.attr('class').split(" ")[0].replace("claim-hseq","");
+      $(className).on('click', function (e) {
+        e.preventDefault();
+        $('#content').load('./jade/main-panel.html', function(){
+          $('#content').append('<div id="panel-content" />');
+          $('#panel-content').load('./jade/' + firstClass + '-panel-content.html', function(){
+          });
+        });
+      })
     });
   });
 
-  $('.claim-hseq-4-1-1').click(function(e) {
-    e.preventDefault();
-    $('#content').load('./jade/main-panel.html', function(){
-      $('#content').append('<div id="panel-content" />');
-      $('#panel-content').load('./jade/4-1-1-panel-content.html', function(){
-      });
-    });
-  });
-
-  $('.claim-hseq-4-1-1-1').click(function(e) {
-    e.preventDefault();
-    $('#content').load('./jade/main-panel.html', function(){
-      $('#content').append('<div id="panel-content" />');
-      $('#panel-content').load('./jade/4-1-1-1-panel-content.html', function(){
-      });
-    });
-  });
-
-  $('.claim-hseq-4-1-1-3').click(function(e) {
-    e.preventDefault();
-    $('#content').load('./jade/main-panel.html', function(){
-      $('#content').append('<div id="panel-content" />');
-      $('#panel-content').load('./jade/4-1-1-3-panel-content.html', function(){
-      });
-    });
-  });
-
-  $('.claim-hseq-4-1-2').click(function(e) {
-    e.preventDefault();
-    $('#content').load('./jade/main-panel.html', function(){
-      $('#content').append('<div id="panel-content" />');
-      $('#panel-content').load('./jade/4-1-2-panel-content.html', function(){
-      });
-    });
-  });
-
-  $('.claim-hseq-4-1-3').click(function(e) {
-    e.preventDefault();
-    $('#content').load('./jade/main-panel.html', function(){
-      $('#content').append('<div id="panel-content" />');
-      $('#panel-content').load('./jade/4-1-3-panel-content.html', function(){
-      });
-    });
-  });
-
-  $('.claim-hseq-4-1-4').click(function(e) {
-    e.preventDefault();
-    $('#content').load('./jade/main-panel.html', function(){
-      $('#content').append('<div id="panel-content" />');
-      $('#panel-content').load('./jade/4-1-4-panel-content.html', function(){
-      });
-    });
-  });
-
+  // loadPage();
 
   $(function () {
     var linksContent = $('div#content div.col-md-6').find('a');
@@ -114,20 +48,14 @@ $(document).ready(function(){
             // var children = $(value).parents();
             // var siblings2 = $(value).parent('li').nextAll().prevAll();
             var siblings = $(value).parents('li').nextAll().prevAll();
-
-            // children.show('fast');
-            // siblings2.show('fast');
             siblings.show('fast');
-            // $(value).show(fast);
-            // console.log('prawda');
-            // console.log($(value));
+
           }else {
             // children.hide('fast');
           }
           // console.log(value);
           // $(value).show();
         }
-
       });
       e.stopPropagation();
     });
@@ -174,8 +102,6 @@ $(document).ready(function(){
       })
     }
   })
-
-
 });
 
 var slidersMemo;
@@ -205,9 +131,7 @@ function sliderSum(theSlider) {
     });
   }
   return result;
-
 }
-
 
 $.fn.rangeslider = function(options) {
   var obj = this;
@@ -254,13 +178,13 @@ function updateSlider(passObj, memo) {
         var initVal;
         if($(obj[idx]).attr('data-children') != null){
           initVal = sliderSum($(obj[idx]));
-          console.log("SUMA");
-          console.log(initVal);
+          // console.log("SUMA");
+          // console.log(initVal);
         }
         else
         {
           initVal = memo[obj[idx].name];
-          console.log(obj[0].name)
+          // console.log(obj[0].name)
         }
         //console.log("initVal: " + initVal );
         if(!initVal)
@@ -276,10 +200,10 @@ function updateSlider(passObj, memo) {
     if(obj.attr('data-parent') != null){
       var parentSlider = $('input[name=allRating'+obj.attr('data-parent') +']')
         , parentVal = sliderSum(parentSlider);
-          console.log("parentVal")
-          console.log(parentVal)
-      console.log("parentSlider")
-      console.log(parentSlider)
+      //     console.log("parentVal")
+      //     console.log(parentVal)
+      // console.log("parentSlider")
+      // console.log(parentSlider)
       if(parentVal)
       {
         parentSlider.val(parentVal);
