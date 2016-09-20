@@ -15,7 +15,7 @@ $(document).ready(function(){
     });
 
   $(function loadPage(){
-    var links = $("a[class^='claim']");
+    var links = $("[class^='claim']");
     links.each(function(){
       var className = $(this);
       var numberClass = className.attr('class').split(" ")[0].replace("claim-hseq","");
@@ -87,13 +87,10 @@ $(document).ready(function(){
 
     $('.filter-select').each(function(){
       applyFilter(filterGroup, $(this).data('filter-name'), $(this).val());
-      console.log($(this).data('filter-name'));
     })
 
     function applyFilter(filterGroup, filterName, filterValue) {
       filterGroup.find('.hseq').each(function(index, element){
-        // console.log(index);
-        console.log(element);
         var testValue = $(element).data(filterName).toString();
         console.log(testValue);
         if (filterValue !== 'All' && testValue !== filterValue) {
@@ -111,21 +108,21 @@ console.log(slidersMemo)
 function sliderSum(theSlider) {
   var childrenIds = theSlider.data('children')
   ,   result = 0;
-
+console.log("childrenIds: " + childrenIds)
   if(childrenIds)
   {
     $.each(childrenIds.split(','), function(idx, val) {
       if(slidersMemo) {
           var childValue = slidersMemo["rangeslider"+val];
-        console.log("val");
-        console.log(val);
-        console.log("childValue");
-        console.log(childValue);
+        console.log("val: " + val);
+        // console.log(val);
+        console.log("childValue: " + childValue);
+        // console.log(childValue);
           if(childValue)
           {
             result = result + parseInt(childValue);
-            console.log("result");
-            console.log(result)
+            console.log("RESULT: " + result);
+            // console.log(result)
           }
       }
     });
@@ -153,9 +150,9 @@ $.fn.rangeslider = function(options) {
 function updateSlider(passObj, memo) {
 
   var obj = $(passObj);
-  console.log(obj);
+  // console.log(obj);
   var value = obj.val();
-  console.log("value: " + value);
+  // console.log("value: " + value);
   var min = obj.attr("min");
   var max = obj.attr("max");
   var t = 100/max;
@@ -168,8 +165,8 @@ function updateSlider(passObj, memo) {
   nextObj.find("span.bar > span.pasek").css("width", max * t - percentage + '%' );
 
   var nn = obj[0].name.replace("rangeslider","");
-  console.log('nn ' + nn);
-  var nn1 = obj[0].name.replace("allRating","");
+  // console.log('nn ' + nn);
+  // var nn1 = obj[0].name.replace("allRating","");
 
 
 
@@ -178,8 +175,9 @@ function updateSlider(passObj, memo) {
         var initVal;
         if($(obj[idx]).attr('data-children') != null){
           initVal = sliderSum($(obj[idx]));
-          // console.log("SUMA");
-          // console.log(initVal);
+
+          console.log("SUMA");
+          console.log(initVal);
         }
         else
         {
@@ -198,7 +196,7 @@ function updateSlider(passObj, memo) {
   } else {
     //ruch myszką
     if(obj.attr('data-parent') != null){
-      var parentSlider = $('input[name=allRating'+obj.attr('data-parent') +']')
+      var parentSlider = $('input[name=rangeslider'+obj.attr('data-parent') +']')
         , parentVal = sliderSum(parentSlider);
       //     console.log("parentVal")
       //     console.log(parentVal)
@@ -207,6 +205,7 @@ function updateSlider(passObj, memo) {
       if(parentVal)
       {
         parentSlider.val(parentVal);
+
         updateSlider(parentSlider, null);
       }
     }
@@ -215,8 +214,8 @@ function updateSlider(passObj, memo) {
   $('.numberValue'+nn).text(Math.round(percentage / t) + "/" + max);
   $('.numberValue-per'+nn).text(percentage + '%' );
 
-  $('.numberValue'+ nn1).text(Math.round(percentage / t) + "/" + max);
-  $('.numberValue-per'+ nn1).text(percentage + '%');
+  // $('.numberValue'+ nn1).text(Math.round(percentage / t) + "/" + max);
+  // $('.numberValue-per'+ nn1).text(percentage + '%');
 
 
   if(!slidersMemo)
@@ -225,114 +224,83 @@ function updateSlider(passObj, memo) {
   }
   slidersMemo[obj[0].name] = value;
 
-
-
-  var pie = document.getElementById("pie4-1-1-1");
-  var pie1 = document.getElementById("pie4-1-1-2");
-  // var pie2 = document.getElementById("pie4-1-1");
-  var pie2 = $("#pie4-1-1").html();
-  var pie3 = $("div[id^='pie']");
-
-  pie3.each(function() {
-    var pieName = $(this);
-    console.log(pieName)
-    // var numberPie = pie3.attr('class').split(" ")[0].replace("pie","");
-    var numberPie = pieName.attr('id').replace("pie","");
-    var numberPie1 = pieName.attr('id').slice(0,3);
-    console.log('numberPie')
-    console.log(numberPie)
-    console.log('numberPie1')
-    console.log(numberPie1)
-    var pie5 = $("#" + numberPie1 + numberPie);
-    var pie6 = document.getElementById("#" + numberPie1 + numberPie);
-    console.log('pie5')
-    console.log(pie5)
-    console.log('pie6')
-    console.log(pie6)
-    // updatePie(pie5);
-
-  })
-
-
-  // console.log('pie3:' + pie3);
-  console.log('pie3');
-  console.log(pie3);
-  console.log('pie2');
-  console.log(pie2);
-
-  updatePie(pie);
-  updatePie(pie1);
-  updatePie(pie2);
-
-  // updatePie(pie3);
-
-
-  function updatePie(pie) {
-    console.log(pie.getAttribute('data-name'))
-    console.log(obj[0].name)
-    if(obj[0].name == pie.getAttribute('data-name')){
-      // console.log("tak")
-      var p = percentage;
-      if(!p)
-      {
-        p=0;
-      }
-      // console.log('p: '+ p);
-      var NS = 'http://www.w3.org/2000/svg';
-      var svg = document.createElementNS(NS, 'svg');
-      var circle = document.createElementNS(NS, 'circle')
-      var title = document.createElementNS(NS, 'title');
-      circle.setAttribute('r', 16);
-      circle.setAttribute('cx', 16);
-      circle.setAttribute('cy', 16);
-      circle.setAttribute('stroke-dasharray', p + ' 100');
-      svg.setAttribute('viewBox', '0 0 32 32');
-      title.textContent = pie.textContent;
-      pie.textContent = '';
-      svg.appendChild(title);
-      svg.appendChild(circle);
-      pie.appendChild(svg);
-
-    }
-
-
-
-    // var p = parseFloat(pie.textContent);
-
+  function $$(selector, context) {
+    context = context || document;
+    var elements = context.querySelectorAll(selector);
+    return Array.prototype.slice.call(elements);
   }
 
 
+  $$('.pie').forEach(function(pie) {
+    // console.log('pie)
+    // console.log(obj)
+    // console.log(obj.name)
+    for (var i = 0; i < obj.length; i++) {
+      if(obj[i].name == pie.getAttribute('data-name') ||
+        obj.name == pie.getAttribute('data-name')) {
+        // console.log(obj[i].name)
+        var p = percentage;
+        // console.log('p: ' + p);
+        var NS = 'http://www.w3.org/2000/svg';
+        var svg = document.createElementNS(NS, 'svg');
+        var circle = document.createElementNS(NS, 'circle')
+        // $(circle).addClass('numberValue-per-4-1-1');
+        var title = document.createElementNS(NS, 'title');
+        circle.setAttribute('r', 16);
+        circle.setAttribute('cx', 16);
+        circle.setAttribute('cy', 16);
+        circle.setAttribute('stroke-dasharray', p + ' 100');
+        svg.setAttribute('viewBox', '0 0 32 32');
+        // console.log(pie.textContent);
+        title.textContent = pie.textContent;
+        pie.textContent = '';
+        svg.appendChild(title);
+        svg.appendChild(circle);
+        pie.appendChild(svg);
+        // console.log(pie)
+      }
+    }
+  });
+
+  /*
+   var pie = document.getElementById("pie4-1-1-1");
+   var pie1 = document.getElementById("pie4-1-1-2");
+   var pie2 = document.getElementById("pie4-1-1");
+   var pie3 = document.getElementsByClassName('pie')
+   console.log('pie3');
+   console.log(pie3);
+
+   updatePie(pie);
+   updatePie(pie1);
+   updatePie(pie2);
 
 
-// function $$(selector, context) {
-//   context = context || document;
-//   var elements = context.querySelectorAll(selector);
-//   return Array.prototype.slice.call(elements);
-// }
-//
-//
-//   $$('.pie').forEach(function(pie) {
-//     console.log(pie)
-//     // var p = parseFloat(pie.textContent);
-//     var p = percentage;
-//     console.log('p: '+ p);
-//     var NS = 'http://www.w3.org/2000/svg';
-//     var svg = document.createElementNS(NS, 'svg');
-//     var circle = document.createElementNS(NS, 'circle')
-//     // $(circle).addClass('numberValue-per-4-1-1');
-//     var title = document.createElementNS(NS, 'title');
-//     circle.setAttribute('r', 16);
-//     circle.setAttribute('cx', 16);
-//     circle.setAttribute('cy', 16);
-//     circle.setAttribute('stroke-dasharray', p + ' 100');
-//     svg.setAttribute('viewBox', '0 0 32 32');
-//     console.log(pie.textContent);
-//     title.textContent = pie.textContent;
-//     pie.textContent = '';
-//     svg.appendChild(title);
-//     svg.appendChild(circle);
-//     pie.appendChild(svg);
-//   });
+   function updatePie(pie) {
+   // var pieClass = pie.getAttribute('id').replace("pie","");
+   // var objAttr = (obj[0].name).replace("rangeslider","");
+   console.log(pie.getAttribute('data-name'))
+   console.log(obj[0].name)
+   if(obj[0].name == pie.getAttribute('data-name')){
+   console.log("tak")
+   var p = percentage;
+   var NS = 'http://www.w3.org/2000/svg';
+   var svg = document.createElementNS(NS, 'svg');
+   var circle = document.createElementNS(NS, 'circle')
+   var title = document.createElementNS(NS, 'title');
+   circle.setAttribute('r', 16);
+   circle.setAttribute('cx', 16);
+   circle.setAttribute('cy', 16);
+   circle.setAttribute('stroke-dasharray', p + ' 100');
+   svg.setAttribute('viewBox', '0 0 32 32');
+   title.textContent = pie.textContent;
+   pie.textContent = '';
+   svg.appendChild(title);
+   svg.appendChild(circle);
+   pie.appendChild(svg);
+   }
+   }
+   */
+
 
 
 };
