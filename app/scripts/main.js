@@ -16,9 +16,11 @@ $(document).ready(function(){
 
   $(function loadPage(){
     var links = $("[class^='claim']");
+    // console.log(links)
     links.each(function(){
       var className = $(this);
       var numberClass = className.attr('class').split(" ")[0].replace("claim-hseq","");
+      // console.log(numberClass)
       $(className).on('click', function (e) {
         e.preventDefault();
         $('#content').load('./jade/main-panel.html', function(){
@@ -92,7 +94,7 @@ $(document).ready(function(){
     function applyFilter(filterGroup, filterName, filterValue) {
       filterGroup.find('.hseq').each(function(index, element){
         var testValue = $(element).data(filterName).toString();
-        console.log(testValue);
+        // console.log(testValue);
         if (filterValue !== 'All' && testValue !== filterValue) {
           $(element).addClass('hide');
         }
@@ -105,24 +107,23 @@ var slidersMemo;
 console.log("slidersMemo")
 console.log(slidersMemo)
 
+
 function sliderSum(theSlider) {
   var childrenIds = theSlider.data('children')
   ,   result = 0;
-console.log("childrenIds: " + childrenIds)
+// console.log("childrenIds: " + childrenIds)
   if(childrenIds)
   {
     $.each(childrenIds.split(','), function(idx, val) {
       if(slidersMemo) {
           var childValue = slidersMemo["rangeslider"+val];
         console.log("val: " + val);
-        // console.log(val);
         console.log("childValue: " + childValue);
-        // console.log(childValue);
           if(childValue)
           {
             result = result + parseInt(childValue);
             console.log("RESULT: " + result);
-            // console.log(result)
+            console.log(result)
           }
       }
     });
@@ -171,38 +172,46 @@ function updateSlider(passObj, memo) {
 
 
   if(memo){ //Inicjalizacja slidera
+    console.log("-----: ");
+
+    console.log( memo);
+    console.log(memo[passObj[2].name]);
+    console.log(memo.rangeslider412);
+
       $.each(passObj, function (idx, val) {
         var initVal;
         if($(obj[idx]).attr('data-children') != null){
           initVal = sliderSum($(obj[idx]));
 
-          console.log("SUMA");
-          console.log(initVal);
+          console.log(obj);
         }
         else
         {
           initVal = memo[obj[idx].name];
-          // console.log(obj[0].name)
         }
-        //console.log("initVal: " + initVal );
         if(!initVal)
         {
           initVal=0;
         }
         $(passObj[idx]).val(initVal);
+        // console.log($(passObj[idx]).name);
         updateSlider(passObj[idx], null);
       });
       return;
   } else {
     //ruch myszką
+    if(!slidersMemo)
+    {
+      slidersMemo={};
+    }
+    slidersMemo[obj[0].name] = value;
+
+
     if(obj.attr('data-parent') != null){
       var parentSlider = $('input[name=rangeslider'+obj.attr('data-parent') +']')
         , parentVal = sliderSum(parentSlider);
-      //     console.log("parentVal")
-      //     console.log(parentVal)
-      // console.log("parentSlider")
-      // console.log(parentSlider)
-      if(parentVal)
+
+      if(parentVal>=0)
       {
         parentSlider.val(parentVal);
 
@@ -216,13 +225,6 @@ function updateSlider(passObj, memo) {
 
   // $('.numberValue'+ nn1).text(Math.round(percentage / t) + "/" + max);
   // $('.numberValue-per'+ nn1).text(percentage + '%');
-
-
-  if(!slidersMemo)
-  {
-    slidersMemo={};
-  }
-  slidersMemo[obj[0].name] = value;
 
   function $$(selector, context) {
     context = context || document;
