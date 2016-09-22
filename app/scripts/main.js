@@ -117,8 +117,8 @@ function sliderSum(theSlider) {
     $.each(childrenIds.split(','), function(idx, val) {
       if(slidersMemo) {
           var childValue = slidersMemo["rangeslider"+val];
-        console.log("val: " + val);
-        console.log("childValue: " + childValue);
+        // console.log("val: " + val);
+        // console.log("childValue: " + childValue);
           if(childValue)
           {
             result = result + parseInt(childValue);
@@ -174,16 +174,10 @@ function updateSlider(passObj, memo) {
   if(memo){ //Inicjalizacja slidera
     console.log("-----: ");
 
-    console.log( memo);
-    console.log(memo[passObj[2].name]);
-    console.log(memo.rangeslider412);
-
       $.each(passObj, function (idx, val) {
         var initVal;
         if($(obj[idx]).attr('data-children') != null){
           initVal = sliderSum($(obj[idx]));
-
-          console.log(obj);
         }
         else
         {
@@ -214,6 +208,7 @@ function updateSlider(passObj, memo) {
       if(parentVal>=0)
       {
         parentSlider.val(parentVal);
+        console.log(parentSlider.val())
 
         updateSlider(parentSlider, null);
       }
