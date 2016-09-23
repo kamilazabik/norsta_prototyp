@@ -17,15 +17,16 @@
             h6.text-left.numberValue-per4 0%
       .col-md-2.box-under-header.assessment-icon
         span.numberValue4.numberValue 0/1404
-        input.slider(value='0', min='0', max='1404', step='1', name='rangeslider4', data-children='41,42,43,44,45,46,47,48,49', type='range', disabled )
+        input.slider(value='0', min='0', max='1404', step='1', name='rangeslider4', data-children='41,42,43,44,45,46,47,48,49', type='range', disabled, data-parent='0' )
       .col-md-1-1.box-under-header.assessment-icon
         select#filterHSEQ.form-control.filter-select(name='filterHSEQ', data-filter-name='hseq')
           option(value='All') All
           option(value='HS') HS
           option(value='E') E
           option(value='Q') Q
-      .col-md-1
-        button.btn.btn-assessment.btn-sm(type='button') Oceń
+      .col-md-1-2
+        button.claim-hseq0.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-up(aria-hidden='true')
         button.claim-hseq3.btn.btn-default.navbar-btn(type='button')
           i.fa.fa-angle-double-left(aria-hidden='true')
         button.claim-hseq5.btn.btn-default.navbar-btn(type='button')
@@ -34,7 +35,7 @@
     .row.hseq(data-hseq="")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1
-      .panel.col-md-5.box-under-header-sx.pull-left.title
+      .panel.col-md-4.box-under-header-sx.pull-left.title
         a.claim-hseq4-1(href='#')
           h5 Procesy Związane z Klientem
       .col-md-3.box-under-header-sx.assessment-icon
@@ -50,11 +51,14 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue41.numberValue 0/179
         input.slider(value='0', min='0', max='179', step='1', name='rangeslider41', data-parent='4', type='range', disabled)
+      .col-md-1-2
+        button.claim-hseq4-1.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="Q")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.2
         h5 Q
-      .panel.col-md-5.box-under-header-sx.pull-left.title
+      .panel.col-md-4.box-under-header-sx.pull-left.title
         a.claim-hseq4-2(href='#')
           h5 Projektowanie i Rozwój
       .col-md-3.box-under-header-sx.assessment-icon
@@ -70,10 +74,13 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue42.numberValue 0/222
         input.slider(value='0', min='0', max='222', step='1', name='rangeslider42', data-parent='4', type='range')
+      .col-md-1-2
+        button.claim-hseq4-2.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.3
-      .panel.col-md-5.box-under-header-sx.pull-left.title
+      .panel.col-md-4.box-under-header-sx.pull-left.title
         a.claim-hseq4-3(href='#')
           h5 Zarządzane zamówieniami i dostawiami
       .col-md-3.box-under-header-sx.assessment-icon
@@ -89,11 +96,14 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue43.numberValue 0/175
         input.slider(value='0', min='0', max='175', step='1', name='rangeslider43', data-parent='4', type='range')
+      .col-md-1-2
+        button.claim-hseq4-3.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="Q")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.4
         h5 Q
-      .panel.col-md-5.box-under-header-sx.pull-left.title
+      .panel.col-md-4.box-under-header-sx.pull-left.title
         a.claim-hseq4-4(href='#')
           h5 Zaopatrzenie produktu/usługi
       .col-md-3.box-under-header-sx.assessment-icon
@@ -109,10 +119,13 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue44.numberValue 0/214
         input.slider(value='0', min='0', max='214', step='1', name='rangeslider44', data-parent='4', type='range')
+      .col-md-1-2
+        button.claim-hseq4-4.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.5
-      .panel.col-md-5.box-under-header-sx.pull-left.title
+      .panel.col-md-4.box-under-header-sx.pull-left.title
         a.claim-hseq4-5(href='#')
           h5 Sterowanie operacyjne
       .col-md-3.box-under-header-sx.assessment-icon
@@ -128,11 +141,14 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue45.numberValue 0/135
         input.slider(value='0', min='0', max='135', step='1', name='rangeslider45', data-parent='4', type='range')
+      .col-md-1-2
+        button.claim-hseq4-5.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="Q")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.6
         h5 Q
-      .panel.col-md-5.box-under-header-sx.pull-left.title
+      .panel.col-md-4.box-under-header-sx.pull-left.title
         a.claim-hseq4-6(href='#')
           h5 Kompetencje, Szkolenia i Świadomość
       .col-md-3.box-under-header-sx.assessment-icon
@@ -148,11 +164,14 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue46.numberValue 0/189
         input.slider(value='0', min='0', max='189', step='1', name='rangeslider46', data-parent='4', type='range')
+      .col-md-1-2
+        button.claim-hseq4-6.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="Q")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.7
         h5 Q
-      .panel.col-md-5.box-under-header-sx.pull-left.title
+      .panel.col-md-4.box-under-header-sx.pull-left.title
         a.claim-hseq4-7(href='#')
           h5 Nadzór nad Dokumentacją i Zarządzanie Zapisami
       .col-md-3.box-under-header-sx.assessment-icon
@@ -168,10 +187,13 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue47.numberValue 0/180
         input.slider(value='0', min='0', max='180', step='1', name='rangeslider47', data-parent='4', type='range')
+      .col-md-1-2
+        button.claim-hseq4-7.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.8
-      .panel.col-md-5.box-under-header-sx.pull-left.title
+      .panel.col-md-4.box-under-header-sx.pull-left.title
         a.claim-hseq4-8(href='#')
           h5 Komunikacja, Uczestnictwo i Konsultacje
       .col-md-3.box-under-header-sx.assessment-icon
@@ -187,6 +209,9 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue48.numberValue 0/115
         input.slider(value='0', min='0', max='115', step='1', name='rangeslider48', data-parent='4', type='range')
+      .col-md-1-2
+        button.claim-hseq4-8.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-down(aria-hidden='true')
 .col-md-3.col-md-offset-0.pull-right.panel-margin
   #accordion.panel-group(role='tablist', aria-multiselectable='true')
     .panel.panel-default

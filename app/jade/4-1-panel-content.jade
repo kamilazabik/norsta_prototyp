@@ -17,24 +17,25 @@
             h6.text-left.numberValue-per41 0%
       .col-md-2.box-under-header.assessment-icon
           span.numberValue41.numberValue 0/179
-          input.slider(value='0', min='0', max='179', step='1', name='rangeslider41', data-children='411,412,413,414,415,416,417,418,419', type='range', disabled )
+          input.slider(value='0', min='0', max='179', step='1', name='rangeslider41', data-children='411,412,413,414,415,416,417,418,419', type='range', disabled, data-parent='0')
       .col-md-1-1.box-under-header.assessment-icon
           select#filterHSEQ.form-control.filter-select(name='filterHSEQ', data-filter-name='hseq')
             option(value='All') All
             option(value='HS') HS
             option(value='E') E
             option(value='Q') Q
-      .col-md-1
-        button.btn.btn-assessment.btn-sm(type='button') Oceń
+      .col-md-1-2
+        button.claim-hseq4.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-up(aria-hidden='true')
         //button.claim-hseq3.btn.btn-default.navbar-btn(type='button')
         //  i.fa.fa-angle-double-left(aria-hidden='true')
-        button.claim-hseq-4-2.btn.btn-default.navbar-btn(type='button')
+        button.claim-hseq4-2.btn.btn-default.navbar-btn(type='button')
           i.fa.fa-angle-double-right(aria-hidden='true')
   .col-md-12.col-md-offset-0.panels.filter-group
     .row.hseq(data-hseq="")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.1
-      .panel.col-md-5.box-under-header-sx.pull-left.title
+      .panel.col-md-4.box-under-header-sx.pull-left.title
         a.claim-hseq4-1-1(href='#')
           h5 Procedura określa wymagania związane z produktem/usługą
       .col-md-3.box-under-header-sx.assessment-icon
@@ -50,6 +51,9 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue411.numberValue 0/44
         input.slider(value='0', min='0', max='44', step='1', name='rangeslider411', data-parent='41', type='range', disabled)
+      .col-md-1-2
+        button.claim-hseq4-1-1.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="Q")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.2

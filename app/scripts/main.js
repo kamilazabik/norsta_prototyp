@@ -122,8 +122,8 @@ function sliderSum(theSlider) {
           if(childValue)
           {
             result = result + parseInt(childValue);
-            console.log("RESULT: " + result);
-            console.log(result)
+            // console.log("RESULT: " + result);
+            // console.log(result)
           }
       }
     });
@@ -159,7 +159,8 @@ function updateSlider(passObj, memo) {
   var t = 100/max;
 
   var range = Math.round(max - min);
-  var percentage = Math.round((value - min) * 100 / range);
+  var percentage = ((value - min) * 100 / range).toFixed(2);
+
   var nextObj = obj.next();
   nextObj.find("span.bar-btn").css("left", percentage + "%");
   nextObj.find("span.bar > span.pasek1").css("width", percentage + "%");
@@ -172,7 +173,7 @@ function updateSlider(passObj, memo) {
 
 
   if(memo){ //Inicjalizacja slidera
-    console.log("-----: ");
+    console.log(memo);
 
       $.each(passObj, function (idx, val) {
         var initVal;
@@ -190,6 +191,8 @@ function updateSlider(passObj, memo) {
         $(passObj[idx]).val(initVal);
         // console.log($(passObj[idx]).name);
         updateSlider(passObj[idx], null);
+
+
       });
       return;
   } else {
@@ -201,18 +204,26 @@ function updateSlider(passObj, memo) {
     slidersMemo[obj[0].name] = value;
 
 
+    // console.log(obj)
+
     if(obj.attr('data-parent') != null){
       var parentSlider = $('input[name=rangeslider'+obj.attr('data-parent') +']')
         , parentVal = sliderSum(parentSlider);
+      console.log(parentSlider.val())
+      console.log(parentSlider)
 
       if(parentVal>=0)
       {
         parentSlider.val(parentVal);
-        console.log(parentSlider.val())
-
         updateSlider(parentSlider, null);
       }
+
+      // if(obj.attr('data-parent') != null && obj.attr('data-children') != null){
+      //   console.log('tak');
+      // }
+
     }
+
   }
 
   $('.numberValue'+nn).text(Math.round(percentage / t) + "/" + max);
