@@ -71,7 +71,14 @@ $icon-font-path: '../fonts/';
       @include make-md-column( 1 );
     }
   }
+  padding-right: 0;
+
+  div.panel:first-child {
+    margin-top: 0;
+  }
 }
+
+
 //
 //.co-md-15,
 //.col-sm-15,

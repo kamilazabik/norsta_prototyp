@@ -111,14 +111,13 @@ console.log(slidersMemo)
 function sliderSum(theSlider) {
   var childrenIds = theSlider.data('children')
   ,   result = 0;
-// console.log("childrenIds: " + childrenIds)
+console.log("childrenIds: " + childrenIds)
   if(childrenIds)
   {
     $.each(childrenIds.split(','), function(idx, val) {
       if(slidersMemo) {
           var childValue = slidersMemo["rangeslider"+val];
-        // console.log("val: " + val);
-        // console.log("childValue: " + childValue);
+        console.log(childValue);
           if(childValue)
           {
             result = result + parseInt(childValue);
@@ -209,8 +208,8 @@ function updateSlider(passObj, memo) {
     if(obj.attr('data-parent') != null){
       var parentSlider = $('input[name=rangeslider'+obj.attr('data-parent') +']')
         , parentVal = sliderSum(parentSlider);
-      console.log(parentSlider.val())
-      console.log(parentSlider)
+      // console.log(parentSlider.val())
+      // console.log(parentSlider)
 
       if(parentVal>=0)
       {
@@ -218,12 +217,7 @@ function updateSlider(passObj, memo) {
         updateSlider(parentSlider, null);
       }
 
-      // if(obj.attr('data-parent') != null && obj.attr('data-children') != null){
-      //   console.log('tak');
-      // }
-
     }
-
   }
 
   $('.numberValue'+nn).text(Math.round(percentage / t) + "/" + max);
