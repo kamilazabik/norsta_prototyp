@@ -101,23 +101,25 @@ $(document).ready(function(){
       })
     }
   })
+
+
 });
 
 var slidersMemo;
-console.log("slidersMemo")
-console.log(slidersMemo)
+// console.log("slidersMemo")
+// console.log(slidersMemo)
 
 
 function sliderSum(theSlider) {
   var childrenIds = theSlider.data('children')
   ,   result = 0;
-console.log("childrenIds: " + childrenIds)
+// console.log("childrenIds: " + childrenIds)
   if(childrenIds)
   {
     $.each(childrenIds.split(','), function(idx, val) {
       if(slidersMemo) {
           var childValue = slidersMemo["rangeslider"+val];
-        console.log(childValue);
+        // console.log(childValue);
           if(childValue)
           {
             result = result + parseInt(childValue);
@@ -172,7 +174,7 @@ function updateSlider(passObj, memo) {
 
 
   if(memo){ //Inicjalizacja slidera
-    console.log(memo);
+    // console.log(memo);
 
       $.each(passObj, function (idx, val) {
         var initVal;
