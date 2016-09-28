@@ -174,7 +174,7 @@ function updateSlider(passObj, memo) {
 
 
   if(memo){ //Inicjalizacja slidera
-    // console.log(memo);
+    // console.log(passObj);
 
       $.each(passObj, function (idx, val) {
         var initVal;
@@ -202,6 +202,7 @@ function updateSlider(passObj, memo) {
     {
       slidersMemo={};
     }
+
     slidersMemo[obj[0].name] = value;
 
 
