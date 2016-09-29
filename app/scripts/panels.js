@@ -1,11 +1,22 @@
 function divClicked() {
-  // console.log('THIS')
-  // console.log($(this))
+  console.log('THIS')
+  console.log($(this))
   var divHtml = $(this).html();
+
+  if(inputMemo){
+    // divHtml = inputMemo.name
+
+    console.log('aaaaaaaaaaaaaaaaaaaa')
+    console.log(inputMemo)
+    // editableText.val(divHtml);
+  }
+
+
+
   var editableText = $("<textarea />")
   editableText.val(divHtml);
-  // console.log("divHtml")
-  // console.log(divHtml)
+  console.log("divHtml")
+  console.log(divHtml)
   $(this).replaceWith(editableText);
   editableText.focus();
   // setup the blur event for this new textarea
@@ -63,7 +74,12 @@ function editableTextBlurred() {
 
 
 
+
 $(document).ready(function() {
   $(".editable_text").click(divClicked);
 });
 //
+
+
+
+

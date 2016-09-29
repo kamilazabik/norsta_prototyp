@@ -4,7 +4,8 @@
       .col-md-1.col-md-offset-0.box-under-header.pull-left.number
         h4 4.1.1
       .col-md-4.box-under-header.pull-left.title
-        h4 Procedura określa wymagania związane z produktem/usługą
+        h4
+          a.title-hseq4-1-1 Procedura określa wymagania związane z produktem/usługą
       .col-md-3.box-under-header.assessment-icon.pull-left
         .row
           .col-md-4
@@ -25,19 +26,19 @@
           option(value='E') E
           option(value='Q') Q
       .col-md-1-2
-        button.claim-hseq4-1.btn.btn-default.navbar-btn(type='button' disabled)
-          i.fa.fa-angle-double-left(aria-hidden='true')
-        button.claim-hseq4-1-2.btn.btn-default.navbar-btn(type='button')
-          i.fa.fa-angle-double-right(aria-hidden='true')
         button.claim-hseq4-1.btn.btn-default.navbar-btn(type='button')
           i.fa.fa-angle-double-up(aria-hidden='true')
+        button.claim-hseq4-1-2.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-right(aria-hidden='true')
+        button.claim-hseq4-1.btn.btn-default.navbar-btn(type='button' disabled)
+          i.fa.fa-angle-double-left(aria-hidden='true')
   .col-md-12.col-md-offset-0.panels.filter-group
     .row.hseq(data-hseq="Q")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.1.1
         h5 Q
-      .panel.col-md-5.box-under-header-sx.pull-left.title
-        a.claim-hseq4-1-1-1(href='#')
+      .panel.col-md-4.box-under-header-sx.pull-left.title
+        a.title-hseq4-1-1-1(href='#')
           h5 Wymagania ustalone przez klienta
       .col-md-3.box-under-header-sx.assessment-icon.pull-left
         .row
@@ -52,12 +53,17 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue4111.numberValue 0/8
         input.slider(value='0', min='0', max='8', step='1', name='rangeslider4111', data-parent='411', type='range')
+      .col-md-1.box-under-header-sx.assessment-icon
+        h4 Q
+      .col-md-1
+        //button.claim-hseq4-1-1-1.btn.btn-default.navbar-btn(type='button')
+        //  i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="Q")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.1.2
         h5 Q
-      .panel.col-md-5.box-under-header-sx.pull-left.title
-        a(href='#')
+      .panel.col-md-4.box-under-header-sx.pull-left.title
+        a.title-hseq4-1-1-2(href='#')
           h5 Wymagania nieustalone przez klienta, ale niezbędne do określonego lub zamierzonego zastosowania wyrobu/usługi
       .col-md-3.box-under-header-sx.assessment-icon
         .row
@@ -72,11 +78,16 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue4112.numberValue 0/5
         input.slider(value='0', min='0', max='5', step='1', name='rangeslider4112', data-parent='411', type='range')
+      .col-md-1.box-under-header-sx.assessment-icon
+        h4 Q
+      .col-md-1
+        //button.claim-hseq4-1-1-2.btn.btn-default.navbar-btn(type='button')
+        //  i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.1.3
-      .panel.col-md-5.box-under-header-sx.pull-left.title
-        a.claim-hseq4-1-1-3(href='#')
+      .panel.col-md-4.box-under-header-sx.pull-left.title
+        a.title-hseq4-1-1-3(href='#')
           h5 Wymagania przepisów prawnychi innych mających zastosowanie do wyrobu/usługi
       .col-md-3.box-under-header-sx.assessment-icon
         .row
@@ -91,11 +102,15 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue4113.numberValue 0/15
         input.slider(value='0', min='0', max='15', step='1', name='rangeslider4113', data-parent='411', type='range', disabled)
+      .col-md-1.box-under-header-sx.assessment-icon
+      .col-md-1
+        button.claim-hseq4-1-1-3.btn.btn-default.navbar-btn(type='button')
+          i.fa.fa-angle-double-down(aria-hidden='true')
     .row.hseq(data-hseq="")
       .col-md-1.col-md-offset-1.box-under-header-sx.pull-left.number
         h5 4.1.1.4
-      .panel.col-md-5.box-under-header-sx.pull-left.title
-        a(href='#')
+      .panel.col-md-4.box-under-header-sx.pull-left.title
+        a.title-hseq4-1-1-4(href='#')
           h5 Wszystkie inne wymagania uznane przez organizację za niezbędne
       .col-md-3.box-under-header-sx.assessment-icon
         .row
@@ -110,68 +125,11 @@
       .col-md-2.box-under-header-sx.assessment-icon
         span.numberValue4114.numberValue 0/16
         input.slider(value='0', min='0', max='16', step='1', name='rangeslider4114', data-parent='411', type='range')
-.col-md-3.col-md-offset-0.pull-right.panel-margin
-  //#accordion.panel-group(role='tablist', aria-multiselectable='true')
-  //  .panel.panel-default
-  //    #headingOne.panel-heading(role='tab')
-  //      h4.panel-title
-  //        a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne') Szczegóły
-  //    #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
-  //      .panel-body
-  //        | Wymóg ten ma na celu zapewnienie, że organizacja całkowicie rozumie wymagania klienta i innych zainteresowanych stron, przed podjęciem jakichkolwiek zobowiązań lub czynności do wykonania.
-  //  .panel.panel-default
-  //    #headingTwo.panel-heading(role='tab')
-  //      h4.panel-title
-  //        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo') Dowody
-  //    #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
-  //      .panel-body
-  //        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-  //  .panel.panel-default
-  //    #headingThree.panel-heading(role='tab')
-  //      h4.panel-title
-  //        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree') Ocena
-  //    #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
-  //      .panel-body
-  //        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-
-  #bs-collapse.panel-group.wrap
-    .panel
-      .panel-heading
-        h4.panel-title
-          a(data-toggle='collapse', data-parent='', href='#one')
-            | Collapse item #1
-      #one.panel-collapse.collapse
-        .panel-body
-          | Where now are the horse and the rider? Where is the horn that was blowing? Where is the helm and the hauberk, and the bright hair flowing?
-    // end of panel
-    .panel
-      .panel-heading
-        h4.panel-title
-          a(data-toggle='collapse', data-parent='', href='#two')
-            | Collapse item #2
-      #two.panel-collapse.collapse
-        .panel-body
-          | Where is the harp on the harpstring, and the red fire glowing? Where is the spring and the harvest and the tall corn growing?
-    // end of panel
-    .panel
-      .panel-heading
-        h4.panel-title
-          a(data-toggle='collapse', data-parent='', href='#three')
-            | Collapse item #3
-      #three.panel-collapse.collapse
-        .panel-body
-          | The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning? The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning?The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning?The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning?
-    // end of panel
-    .panel
-      .panel-heading
-        h4.panel-title
-          a(data-toggle='collapse', data-parent='', href='#four')
-            | Collapse item #4
-      #four.panel-collapse.collapse.in
-        .panel-body
-          | They have passed like rain on the mountain, like a wind in the meadow; The days have gone down in the West behind the hills into shadow.
-    // end of panel
-  // end of #bs-collapse
+      .col-md-1.box-under-header-sx.assessment-icon
+      .col-md-1
+        //button.claim-hseq4-1-1-4.btn.btn-default.navbar-btn(type='button')
+        //  i.fa.fa-angle-double-down(aria-hidden='true')
+include right-panels
 
 //include includes/scripts
 script(src='scripts/main.js')

@@ -14,25 +14,50 @@ $(document).ready(function(){
       });
     });
 
-  $(function loadPage(){
-    var links = $("[class^='claim']");
-    // console.log(links)
+
+
+  function loadTitle(){
+    var links = $("[class*='title-hseq']");
     links.each(function(){
       var className = $(this);
+      var numberClass = className.attr('class').split(" ")[0].replace("title-hseq","").split('-').join('.');
+      $(className).on('click', function (e) {
+        var link = $(this).text();
+        var title = $('.title-claim');
+        var label = $('.label-claim');
+        e.preventDefault();
+        title.text(link);
+        label.text(numberClass);
+      })
+    });
+  };
+
+  $(function loadPage(){
+    var links = $("[class^='claim']");
+    links.each(function(i){
+      var className = $(this);
       var numberClass = className.attr('class').split(" ")[0].replace("claim-hseq","");
-      // console.log(numberClass)
+
       $(className).on('click', function (e) {
         e.preventDefault();
         $('#content').load('./jade/main-panel.html', function(){
           $('#content').append('<div id="panel-content" />');
           $('#panel-content').load('./jade/' + numberClass + '-panel-content.html', function(){
+
+            loadTitle();
+            var titleClaim = $('.title-hseq' + numberClass);
+            console.log(titleClaim)
+            var titlePanel = $('.title-claim');
+            var label = $('.label-claim');
+            titlePanel.text(titleClaim.text());
+            label.text(numberClass.split('-').join('.'));
           });
         });
       })
     });
   });
 
-  // loadPage();
+
 
   $(function () {
     var linksContent = $('div#content div.col-md-6').find('a');
