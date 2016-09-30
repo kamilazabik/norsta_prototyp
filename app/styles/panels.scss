@@ -1,6 +1,8 @@
 @import "mixins";
 
-
+.space {
+  height: 20px;
+}
 
 #main-panel {
   margin: -20px -33px 0px -30px;
@@ -26,8 +28,9 @@
   //-webkit-border-radius: 2px 2px 0 0;
   //-moz-border-radius: 2px 2px 0 0;
   //border-radius: 2px 2px 0 0;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #e7e7e7;
+  //margin-bottom: 20px;
+  //border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid #d6d6d6;
   box-shadow: 1px 1px rgba(0, 0, 0, 0.05);
   height: 8rem;
 
@@ -75,7 +78,7 @@
   //-webkit-border-radius: 2px 2px 0 0;
   //-moz-border-radius: 2px 2px 0 0;
   //border-radius: 2px 2px 0 0;
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
   border: 1px solid transparent;
   //border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -144,13 +147,11 @@
     margin-top: 10px;
     transform: rotate(-90deg );
   }
+
 }
 
 .col-md-1.col-md-offset-1.box-under-header-sx {
   padding-left: 10px;
-}
-.panel-margin {
-  padding-right: 0px;
 }
 
 .box-header .box-icon {
@@ -166,11 +167,13 @@
 
 .number {
   border: 1px solid #e7e7e7;
+  //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .title {
   border-top: 1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7;
+  //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .title-main {
@@ -185,8 +188,38 @@
 }
 
 .assessment-icon {
-  border: 1px solid #e7e7e7;
+   border: 1px solid #e7e7e7;
+  //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+ }
+
+.bar {
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
 }
+
+.filter {
+  border: 1px solid #e7e7e7;
+
+}
+
+.bar-header {
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  border-right: 1px solid #e7e7e7;
+}
+
+.button-expand {
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  border-right: 1px solid #e7e7e7;
+  text-align: center;
+
+  button {
+    flex-basis:40%;
+    margin-top: 8px;
+  }
+}
+
 
 circle {
   fill: #e2282b;
@@ -207,6 +240,11 @@ circle {
     padding-right: 10px;
     padding-top: 10px;
   }
+}
+
+
+.panel-shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 //svg {
 //  background-color: #313547;

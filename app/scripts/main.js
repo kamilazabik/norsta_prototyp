@@ -14,20 +14,25 @@ $(document).ready(function(){
       });
     });
 
-
-
   function loadTitle(){
     var links = $("[class*='title-hseq']");
+    var allElement = $("[class*='panel-hseq']");
+
     links.each(function(){
       var className = $(this);
-      var numberClass = className.attr('class').split(" ")[0].replace("title-hseq","").split('-').join('.');
+      var numberClass = className.attr('class').split(" ")[0].replace("title-hseq","").split('-');
       $(className).on('click', function (e) {
+
+       allElement.removeClass('panel-shadow')
         var link = $(this).text();
         var title = $('.title-claim');
         var label = $('.label-claim');
         e.preventDefault();
         title.text(link);
-        label.text(numberClass);
+        label.text(numberClass.join('.'));
+        var panel = $('.panel-hseq' + numberClass);
+        console.log(panel)
+        panel.addClass('panel-shadow')
       })
     });
   };
@@ -46,7 +51,7 @@ $(document).ready(function(){
 
             loadTitle();
             var titleClaim = $('.title-hseq' + numberClass);
-            console.log(titleClaim)
+            // console.log(titleClaim)
             var titlePanel = $('.title-claim');
             var label = $('.label-claim');
             titlePanel.text(titleClaim.text());
@@ -56,7 +61,6 @@ $(document).ready(function(){
       })
     });
   });
-
 
 
   $(function () {
@@ -291,46 +295,5 @@ function updateSlider(passObj, memo) {
       }
     }
   });
-
-  /*
-   var pie = document.getElementById("pie4-1-1-1");
-   var pie1 = document.getElementById("pie4-1-1-2");
-   var pie2 = document.getElementById("pie4-1-1");
-   var pie3 = document.getElementsByClassName('pie')
-   console.log('pie3');
-   console.log(pie3);
-
-   updatePie(pie);
-   updatePie(pie1);
-   updatePie(pie2);
-
-
-   function updatePie(pie) {
-   // var pieClass = pie.getAttribute('id').replace("pie","");
-   // var objAttr = (obj[0].name).replace("rangeslider","");
-   console.log(pie.getAttribute('data-name'))
-   console.log(obj[0].name)
-   if(obj[0].name == pie.getAttribute('data-name')){
-   console.log("tak")
-   var p = percentage;
-   var NS = 'http://www.w3.org/2000/svg';
-   var svg = document.createElementNS(NS, 'svg');
-   var circle = document.createElementNS(NS, 'circle')
-   var title = document.createElementNS(NS, 'title');
-   circle.setAttribute('r', 16);
-   circle.setAttribute('cx', 16);
-   circle.setAttribute('cy', 16);
-   circle.setAttribute('stroke-dasharray', p + ' 100');
-   svg.setAttribute('viewBox', '0 0 32 32');
-   title.textContent = pie.textContent;
-   pie.textContent = '';
-   svg.appendChild(title);
-   svg.appendChild(circle);
-   pie.appendChild(svg);
-   }
-   }
-   */
-
-
 
 };
