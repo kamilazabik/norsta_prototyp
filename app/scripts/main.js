@@ -20,17 +20,20 @@ $(document).ready(function(){
 
     links.each(function(){
       var className = $(this);
+      console.log(className)
       var numberClass = className.attr('class').split(" ")[0].replace("title-hseq","").split('-');
+
       $(className).on('click', function (e) {
 
        allElement.removeClass('panel-shadow')
+        console.log(numberClass)
         var link = $(this).text();
         var title = $('.title-claim');
         var label = $('.label-claim');
         e.preventDefault();
         title.text(link);
         label.text(numberClass.join('.'));
-        var panel = $('.panel-hseq' + numberClass);
+        var panel = $('.panel-hseq' + numberClass.join('-'));
         console.log(panel)
         panel.addClass('panel-shadow')
       })
