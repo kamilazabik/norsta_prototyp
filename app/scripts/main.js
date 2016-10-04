@@ -20,13 +20,13 @@ $(document).ready(function(){
 
     links.each(function(){
       var className = $(this);
-      console.log(className)
+      // console.log(className)
       var numberClass = className.attr('class').split(" ")[0].replace("title-hseq","").split('-');
 
       $(className).on('click', function (e) {
 
        allElement.removeClass('panel-shadow')
-        console.log(numberClass)
+        // console.log(numberClass)
         var link = $(this).text();
         var title = $('.title-claim');
         var label = $('.label-claim');
@@ -34,7 +34,7 @@ $(document).ready(function(){
         title.text(link);
         label.text(numberClass.join('.'));
         var panel = $('.panel-hseq' + numberClass.join('-'));
-        console.log(panel)
+        // console.log(panel)
         panel.addClass('panel-shadow')
       })
     });
@@ -138,6 +138,13 @@ $(document).ready(function(){
 });
 
 var slidersMemo;
+var relationships = {};
+relationships["rangeslider0"] = {parent: "", children: "1,2,3,4,5,6,7"};
+relationships["rangeslider4"] = {parent: "0", children: "41,42,43,44,45,46,47,48"};
+relationships["rangeslider41"] = {parent: "4", children: "411,412,413,414,415,416,417,418,419"};
+relationships["rangeslider411"] = {parent: "41", children: "4111,4112,4113,4114"};
+relationships["rangeslider4113"] = {parent: "411", children: "4113-HS,4113-E,4113-Q"};
+
 // console.log("slidersMemo")
 // console.log(slidersMemo)
 
@@ -164,6 +171,47 @@ function sliderSum(theSlider) {
   return result;
 }
 
+function sliderSumForParent(sliderName) {
+  var childrenIds = relationships["rangeslider"+sliderName].children
+    ,   result = 0;
+  if(childrenIds)
+  {
+    $.each(childrenIds.split(','), function(idx, val) {
+      if(slidersMemo) {
+        var childValue = slidersMemo["rangeslider"+val];
+        if(childValue)
+        {
+          result = result + parseInt(childValue);
+        }
+      }
+    });
+  }
+  return result;
+}
+
+function updateTopSlider(sliderName) {
+  console.log(sliderName);
+  if(sliderName!=='0')
+  {
+      var sumForParent = sliderSumForParent(sliderName),
+        parentName = relationships["rangeslider"+sliderName].parent;
+
+      slidersMemo["rangeslider"+parentName] = sumForParent;
+      updateTopSlider(parentName);
+  }
+  else
+  {
+    var topValue = sliderSumForParent(sliderName),
+      topSlider = $('input[name=rangeslider'+sliderName+']');
+
+    if (topValue >= 0)
+    {
+      topSlider.val(topValue);
+      updateSlider(topSlider, null);
+    }
+  }
+}
+
 $.fn.rangeslider = function(options) {
   var obj = this;
   var defautValue = obj.attr("value");
@@ -180,6 +228,7 @@ $.fn.rangeslider = function(options) {
 
   return obj;
 };
+
 
 function updateSlider(passObj, memo) {
 
@@ -199,6 +248,10 @@ function updateSlider(passObj, memo) {
   nextObj.find("span.bar > span.pasek1").css("width", percentage + "%");
   nextObj.find("span.bar > span.pasek").css("width", max * t - percentage + '%' );
 
+  if(!obj[0])
+  {
+    return;
+  }
   var nn = obj[0].name.replace("rangeslider","");
   // console.log('nn ' + nn);
   // var nn1 = obj[0].name.replace("allRating","");
@@ -250,6 +303,9 @@ function updateSlider(passObj, memo) {
       {
         parentSlider.val(parentVal);
         updateSlider(parentSlider, null);
+        if(parentSlider.attr('name')) {
+          updateTopSlider(obj.attr('data-parent'));
+        }
       }
 
     }
