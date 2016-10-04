@@ -67,8 +67,11 @@ $(document).ready(function(){
 
 
   $(function () {
-    var linksContent = $('div#content div.col-md-6').find('a');
+    var linksContent = $('div#content div.col-md-5').find('a');
     var linksSidebar = $('div#sidebar-wrapper ul').find('a');
+    console.log(linksContent)
+    console.log(linksSidebar)
+
 
     $(linksContent).on('click', function (e) {
       // console.log('1');
