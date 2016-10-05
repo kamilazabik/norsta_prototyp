@@ -25,15 +25,21 @@ $icon-font-path: '../fonts/';
     .col-md-1 {
       @include make-md-column( 0.7 );
     }
-    .col-md-6 {
-       @include make-md-column( 6.3 );
-     }
-    .col-md-5 {
-      @include make-md-column( 5.3 );
-    }
     .col-md-offset-1 {
        @include make-md-column-offset(0.3);
     }
+    .col-md-4-3 {
+      @include make-md-column(4.3);
+    }
+
+    .col-md-3-1 {
+      @include make-md-column(3.1);
+    }
+
+    .col-md-2-1 {
+      @include make-md-column(2.1);
+    }
+
     .col-md-1-1 {
       @include make-md-column( 1 );
     }
@@ -45,35 +51,20 @@ $icon-font-path: '../fonts/';
       }
       padding-left: 0;
       padding-right: 0;
-      //padding-left: 2px;
-      //padding-right: 2px;
     }
-    //.col-md-11-1 {
-    //  @include make-md-column( 11.5 );
-    //}
-    //.col-md-4 {
-    //  @include make-md-column( 4.4 );
-    //}
-    //
-    ////.col-md-4-1 {
-    ////  @include make-md-column( 4 );
-    ////}
   }
-  //$grid-columns: 12;
 
   .panels-md {
     //$grid-columns: 10;
     @include make-row();
 
-    .col-md-6 {
-      @include make-md-column( 6 );
-    }
     .col-md-5 {
       @include make-md-column( 5 );
     }
-    .col-md-3 {
+    .col-md-2-7 {
       @include make-md-column( 2.7 );
     }
+
     .col-md-offset-1 {
       @include make-md-column-offset(0.7);
     }
@@ -92,9 +83,9 @@ $icon-font-path: '../fonts/';
   }
   padding-right: 0;
 
-  div.panel:first-child {
-    margin-top: 0;
-  }
+  //div.panel:first-child {
+  //  margin-top: 0;
+  //}
 }
 
 .padding-content {

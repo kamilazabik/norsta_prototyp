@@ -69,8 +69,8 @@ $(document).ready(function(){
   $(function () {
     var linksContent = $('div#content div.col-md-5').find('a');
     var linksSidebar = $('div#sidebar-wrapper ul').find('a');
-    console.log(linksContent)
-    console.log(linksSidebar)
+    // console.log(linksContent)
+    // console.log(linksSidebar)
 
 
     $(linksContent).on('click', function (e) {
@@ -114,31 +114,50 @@ $(document).ready(function(){
 
   });
 
+setFilter();
 
   $(".slider").rangeslider();
 
-  $('.filter-select').on('change', function (e) {
+});
 
+var filterValueMemo;
+console.log('filterValueMemo')
+console.log(filterValueMemo)
+
+function setFilter() {
+  var filterSelect = $('.filter-select');
+
+  if (filterValueMemo) {
+    filterSelect.each(function () {
+      var filterGroup = $('.filter-group');
+      applyFilter(filterGroup, $(this).data('filter-name'), filterValueMemo);
+      filterSelect.val(filterValueMemo)
+    })
+  }
+    filterSelect.on('change', function (e) {
     var filterGroup = $('.filter-group');
     filterGroup.find('.hseq').removeClass('hide');
-
-    $('.filter-select').each(function(){
+      filterSelect.each(function () {
       applyFilter(filterGroup, $(this).data('filter-name'), $(this).val());
     })
+  })
+}
 
-    function applyFilter(filterGroup, filterName, filterValue) {
-      filterGroup.find('.hseq').each(function(index, element){
-        var testValue = $(element).data(filterName).toString();
-        // console.log(testValue);
-        if (filterValue !== 'All' && testValue !== filterValue) {
-          $(element).addClass('hide');
-        }
-      })
+
+function applyFilter(filterGroup, filterName, filterValue) {
+  console.log(filterValue);
+  filterValueMemo = filterValue
+  filterGroup.find('.hseq').each(function (index, element) {
+    var testValue = $(element).data(filterName).toString();
+    if (filterValue !== 'All' && testValue !== filterValue) {
+      $(element).addClass('hide');
     }
   })
+}
 
 
-});
+
+
 
 var slidersMemo;
 var relationships = {};
@@ -147,6 +166,7 @@ relationships["rangeslider4"] = {parent: "0", children: "41,42,43,44,45,46,47,48
 relationships["rangeslider41"] = {parent: "4", children: "411,412,413,414,415,416,417,418,419"};
 relationships["rangeslider411"] = {parent: "41", children: "4111,4112,4113,4114"};
 relationships["rangeslider4113"] = {parent: "411", children: "4113-HS,4113-E,4113-Q"};
+relationships["rangeslider3"] = {parent: "0", children: "31,32,33,34,35,36,37"};
 
 // console.log("slidersMemo")
 // console.log(slidersMemo)
@@ -193,11 +213,17 @@ function sliderSumForParent(sliderName) {
 }
 
 function updateTopSlider(sliderName) {
-  console.log(sliderName);
+  // console.log('sliderName');
+  // console.log(sliderName);
   if(sliderName!=='0')
   {
       var sumForParent = sliderSumForParent(sliderName),
         parentName = relationships["rangeslider"+sliderName].parent;
+
+      // console.log('sumForParent')
+      // console.log(sumForParent)
+      // console.log('parentName')
+      // console.log(parentName)
 
       slidersMemo["rangeslider"+parentName] = sumForParent;
       updateTopSlider(parentName);
@@ -308,6 +334,7 @@ function updateSlider(passObj, memo) {
         updateSlider(parentSlider, null);
         if(parentSlider.attr('name')) {
           updateTopSlider(obj.attr('data-parent'));
+          // console.log(obj.attr('data-parent'))
         }
       }
 
